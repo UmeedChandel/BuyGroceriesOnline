@@ -86,7 +86,7 @@ namespace BuyGroceriesOnline.Controllers
             return View(product);
         }
 
-        [HttpPut]
+        [HttpPost]
         public IActionResult UpdateItem(Product product)
         {
             _productRepository.UpdateProduct(product);
@@ -99,7 +99,7 @@ namespace BuyGroceriesOnline.Controllers
             return View(product);
         }
 
-        [HttpDelete]
+        [HttpPost]
         public IActionResult DeleteItem(int productId)
         {
             _productRepository.DeleteProduct(productId);

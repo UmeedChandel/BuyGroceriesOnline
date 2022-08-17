@@ -40,7 +40,7 @@ namespace BuyGroceriesOnline.Controllers
             return View(category);
         }
 
-        [HttpPut]
+        [HttpPost]
         public IActionResult UpdateItem(Category category)
         {
             _categoryRepository.UpdateCategory(category);
@@ -53,7 +53,7 @@ namespace BuyGroceriesOnline.Controllers
             return View(category);
         }
 
-        [HttpDelete]
+        [HttpPost]
         public IActionResult DeleteItem(int categoryId)
         {
             _categoryRepository.DeleteCategory(categoryId);

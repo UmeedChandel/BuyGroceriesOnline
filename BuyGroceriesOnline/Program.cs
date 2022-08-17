@@ -1,4 +1,3 @@
-// aman
 using BuyGroceriesOnline.Models;
 using Microsoft.EntityFrameworkCore;
 

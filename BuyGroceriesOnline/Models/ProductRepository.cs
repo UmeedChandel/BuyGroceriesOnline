@@ -1,4 +1,6 @@
-﻿namespace BuyGroceriesOnline.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace BuyGroceriesOnline.Models
 {
     public class ProductRepository : IProductRepository
     {
@@ -8,7 +10,7 @@
             _appDbContext = appDbContext;
         }
 
-        public IEnumerable<Product> AllProduct => _appDbContext.Products;
+        public IEnumerable<Product> AllProduct => _appDbContext.Products.Include(c => c.Category);
 
         public IEnumerable<Product> ProductOfTheWeek => _appDbContext.Products.Where(product => product.IsProductOfTheWeek);
 

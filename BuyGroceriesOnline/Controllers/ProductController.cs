@@ -1,6 +1,7 @@
 ﻿using BuyGroceriesOnline.Models;
 using BuyGroceriesOnline.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BuyGroceriesOnline.Controllers
 {
@@ -17,8 +18,7 @@ namespace BuyGroceriesOnline.Controllers
 
         private IEnumerable<Product> GetAllProduct()
         {
-            var products = _productRepository.AllProduct ;
-            return products;
+            return _productRepository.AllProduct;
         }
 
         public IActionResult List(int id)
@@ -52,5 +52,59 @@ namespace BuyGroceriesOnline.Controllers
         {
             return View(GetAllProduct().FirstOrDefault(p => p.ProductId == id));
         }
+
+        // Crud Operations
+
+        public void CategoryItem()
+        {
+            var categories = _categoryRepository.AllCategories;
+            List<SelectListItem> categoryItems = new List<SelectListItem>();
+            foreach (var category in categories)
+            {
+                categoryItems.Add(new SelectListItem { Text = category.CategoryName, Value = category.CategoryId.ToString() });
+            }
+            ViewBag.categoryItems = categoryItems;
+        }
+
+        public ViewResult Create()
+        {
+            CategoryItem();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult InsertItem(Product product)
+        {
+            _productRepository.InsertProduct(product);
+            return RedirectToAction("List");
+        }
+
+        public ViewResult Edit(int id)
+        {
+            CategoryItem();
+            var product = GetAllProduct().FirstOrDefault(p => p.ProductId == id);
+            return View(product);
+        }
+
+        [HttpPut]
+        public IActionResult UpdateItem(Product product)
+        {
+            _productRepository.UpdateProduct(product);
+            return RedirectToAction("List");
+        }
+
+        public ViewResult Delete(int id)
+        {
+            var product = GetAllProduct().FirstOrDefault(p => p.ProductId == id);
+            return View(product);
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteItem(int productId)
+        {
+            _productRepository.DeleteProduct(productId);
+            return RedirectToAction("List");
+        }
+
     }
 }

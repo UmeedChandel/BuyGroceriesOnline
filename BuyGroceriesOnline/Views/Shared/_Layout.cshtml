@@ -57,6 +57,11 @@
                             </ul>
                          </div>
 
+                         <li class="nav-item">
+                             <a class="nav-link " asp-area="" asp-controller="ShoppingCart" asp-action="Index"><i class="bi bi-cart3"></i> Cart @await Component.InvokeAsync("ShoppingCartSummary")</a>
+                         </li>
+
+                         
                         <li class="ms-auto">
                             <partial name="_LoginPartial">
                         </li>

@@ -4,6 +4,7 @@ namespace BuyGroceriesOnline.Models
 {
     public class ProductMini
     {
+        [Key]
         public int ProductId { get; set; }
 
         [Display(Name = "Product Name")]
@@ -15,8 +16,8 @@ namespace BuyGroceriesOnline.Models
         [Display(Name = "Take A look")]
         public string ImageThumbnailUrl { get; set; }
 
-        [Display(Name = "In Stock")]
-        public bool InStock { get; set; }
-
+        /*[Display(Name = "Category Id")]
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }*/
     }
 }

@@ -13,13 +13,13 @@ namespace BuyGroceriesOnline.Controllers
     {
         private readonly IProductRepository _productRepository;
         private readonly ICategoryRepository _categoryRepository;
-        private readonly IMapper mapper;
+        private readonly IMapper _mapper;
 
         public ProductController(IProductRepository productRepository, ICategoryRepository categoryRepository, IMapper mapper)
         {
             _productRepository = productRepository;
             _categoryRepository = categoryRepository;
-            this.mapper = mapper;
+            _mapper = mapper;
         }
 
         private IEnumerable<Product> GetAllProduct()
@@ -29,8 +29,7 @@ namespace BuyGroceriesOnline.Controllers
 
         public IActionResult List(int id)
         {
-            var product = _productRepository.AllProduct;
-            var miniProducts = mapper.Map<IEnumerable<ProductMini>> (product);
+            IEnumerable<Product> product;
             CustomClass customClass = new CustomClass();
             if (id > 0)
             {
@@ -59,6 +58,14 @@ namespace BuyGroceriesOnline.Controllers
         public IActionResult Details(int id)
         {
             return View(GetAllProduct().FirstOrDefault(p => p.ProductId == id));
+        }
+
+        public IActionResult ListMini() //invoking this method from url
+        {
+            var products = _productRepository.AllProduct;
+            var miniProduct = _mapper.Map<ProductMini[]>(products);
+
+            return View(miniProduct);
         }
 
         // Crud Operations

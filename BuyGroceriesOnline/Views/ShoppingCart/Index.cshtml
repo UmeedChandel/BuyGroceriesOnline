@@ -3,6 +3,21 @@
 
 <h2>Your shopping cart</h2>
 <h4>Here are your Groceries in your shopping cart.</h4>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6" text-end>
+            <a asp-controller="ShoppingCart" asp-action="ClearCart" class="btn btn-primary">
+                <i class="bi bi-bag-x-fill"></i> &nbsp; Empty Cart
+            </a>
+            <a asp-controller="Order" asp-action="Checkout" class="btn btn-danger">
+                <i class="bi bi-credit-card-fill"></i> &nbsp;Place Order
+            </a>
+        </div>
+    </div>
+    <br />
+</div>
+
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
@@ -18,10 +33,11 @@
         <tr>
             @*<td class="text-center">@line.Amount</td>*@
             <td align="center">
-            <a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@line.Product.ProductId">
-             <img src="~/images/minusIcon.png" width="25" height="25" /></a>  @line.Amount  
-             <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productId="@line.Product.ProductId">
-             <img src="~/images/addingIcon.png" width="25" height="25" /></a>
+            <a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@line.Product.ProductId"
+            class="btn btn-danger mx-2">-</a>  @line.Amount  
+             <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productId="@line.Product.ProductId"
+             class="btn btn-primary mx-2">+
+             </a>
              </td>
             <td class="text-left">@line.Product.Name</td>
             <td class="text-right">Rs. @line.Product.Price.ToString()</td>
@@ -29,7 +45,7 @@
                 @((line.Amount * line.Product.Price).ToString())
             </td>
             <td>
-                <a  asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@line.Product.ProductId">Remove Item</a>
+                <a  asp-controller="ShoppingCart" asp-action="RemoveItem" asp-route-productId="@line.Product.ProductId" class="btn btn-danger mx-2">Remove Item</a>
             </td>
             
         </tr>
@@ -46,7 +62,7 @@
     </tfoot>
 </table>
 
-<div align="center">
+@*<div align="center">
    <p class="button">
        <a class="btn btn-primary" asp-controller="Order" asp-action="Checkout">Buy Now</a>
    </p>
@@ -58,12 +74,13 @@
          asp-controller="ShoppingCart" 
          asp-action="ClearCart"
          asp-route-pieId="@Model.ShoppingCart">Clear Cart</a>
-   </p>
+   </p>*@
 
    <p class="button">
       <a class="btn btn-primary" 
          asp-controller="Product" 
-         asp-action="List">Back to All Products</a>
+         asp-action="List">Back to All Products
+      </a>
    </p>
  </div>
         

@@ -7,9 +7,10 @@
 <h1>ListMini</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-folder-plus"></i> &nbsp;Create New</a>
 </p>
-<table class="table">
+<table class="table table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
             <th>
@@ -21,7 +22,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.ImageThumbnailUrl)
             </th>
-            <th></th>
+            <th>
+                <p>Buy Now!</p>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -33,9 +36,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            <td>
+            <td width="30%">
                @* @Html.DisplayFor(modelItem => item.ImageThumbnailUrl)*@
-               <img src="@item.ImageThumbnailUrl" class="rounded" width=30%>
+               <img src="@item.ImageThumbnailUrl" class="rounded" width=40%>
             </td>
             <td>
                 <div class="addToCart">

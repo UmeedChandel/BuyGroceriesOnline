@@ -99,6 +99,18 @@ namespace BuyGroceriesOnline.Models
             _appDbContext.SaveChanges();
         }
 
+        public void RemoveItem(Product product)
+        {
+            var shoppingCartItem =
+                    _appDbContext.ShoppingCartItems.SingleOrDefault(
+                        s => s.Product.ProductId == product.ProductId && s.ShoppingCartId == ShoppingCartId);
+            if(shoppingCartItem != null)
+            {
+                _appDbContext.ShoppingCartItems.Remove(shoppingCartItem);
+            }
+            _appDbContext.SaveChanges();
+        }
+
         public decimal GetShoppingCartTotal()
         {
             var total = _appDbContext.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)

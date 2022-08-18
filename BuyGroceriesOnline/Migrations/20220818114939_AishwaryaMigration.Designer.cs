@@ -12,13 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuyGroceriesOnline.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-<<<<<<<< HEAD:BuyGroceriesOnline/Migrations/20220818100153_migrationumeed.Designer.cs
-    [Migration("20220818100153_migrationumeed")]
-    partial class migrationumeed
-========
-    [Migration("20220818104045_InitialMigration")]
-    partial class InitialMigration
->>>>>>>> 88882614056819f5f019ebae87dd9c4dfcd5a77f:BuyGroceriesOnline/Migrations/20220818104045_InitialMigration.Designer.cs
+    [Migration("20220818114939_AishwaryaMigration")]
+    partial class AishwaryaMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -531,6 +526,30 @@ namespace BuyGroceriesOnline.Migrations
                             Price = 35m,
                             ShortDescription = "Let the lemon - flavour of the Sprite soft drink quench your thirst and refresh your taste buds instantly."
                         });
+                });
+
+            modelBuilder.Entity("BuyGroceriesOnline.Models.ProductMini", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
+
+                    b.Property<string>("ImageThumbnailUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("ProductId");
+
+                    b.ToTable("ProductMini");
                 });
 
             modelBuilder.Entity("BuyGroceriesOnline.Models.ShoppingCartItem", b =>

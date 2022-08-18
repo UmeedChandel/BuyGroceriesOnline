@@ -22,5 +22,11 @@ namespace BuyGroceriesOnline.Controllers
             FeedbackRepository.InsertFeedback(feed);
             return RedirectToAction("Index", "Home", new { area = "" });            
         }
+
+        public ViewResult AllFeedback()
+        {
+            var allFeedback =  FeedbackRepository.GetAllFeedback();
+            return View(allFeedback);
+        }
     }
 }

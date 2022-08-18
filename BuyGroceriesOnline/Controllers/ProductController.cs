@@ -1,10 +1,12 @@
 ﻿using BuyGroceriesOnline.Models;
 using BuyGroceriesOnline.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BuyGroceriesOnline.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         private readonly IProductRepository _productRepository;

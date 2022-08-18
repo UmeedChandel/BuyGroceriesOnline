@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuyGroceriesOnline.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220818085415_InitialMigration")]
+    [Migration("20220818110206_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -526,6 +526,30 @@ namespace BuyGroceriesOnline.Migrations
                             Price = 35m,
                             ShortDescription = "Let the lemon - flavour of the Sprite soft drink quench your thirst and refresh your taste buds instantly."
                         });
+                });
+
+            modelBuilder.Entity("BuyGroceriesOnline.Models.ProductMini", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
+
+                    b.Property<string>("ImageThumbnailUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("ProductId");
+
+                    b.ToTable("ProductMini");
                 });
 
             modelBuilder.Entity("BuyGroceriesOnline.Models.ShoppingCartItem", b =>

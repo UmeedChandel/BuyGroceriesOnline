@@ -9,6 +9,16 @@
 <div>
     <h4>Product</h4>
     <hr />
+    <div class="addToCart">
+        <p class="button">
+           <a class="btn btn-danger" 
+               asp-controller="ShoppingCart" 
+               asp-action="AddToShoppingCart"
+               asp-route-productId="@Model.ProductId">Add to cart
+           </a>
+        </p>
+    </div>
+            <br />
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
@@ -69,6 +79,7 @@
         </dd>
     </dl>
 </div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.ProductId"
     class="btn btn-primary">Edit</a> |

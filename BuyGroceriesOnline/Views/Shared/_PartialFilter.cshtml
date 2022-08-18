@@ -1,16 +1,6 @@
-﻿@model IEnumerable<BuyGroceriesOnline.Models.ProductMini>
+﻿@model IEnumerable<BuyGroceriesOnline.Models.Product>
 
-@{
-    ViewData["Title"] = "ListMini";
-}
-
-<h1>ListMini</h1>
-
-<p>
-    <a asp-action="Create" class="btn btn-primary">
-        <i class="bi bi-folder-plus"></i> &nbsp;Create New</a>
-</p>
-<table class="table table-bordered table-striped" style="width:100%">
+<table class="table">
     <thead>
         <tr>
             <th>
@@ -23,7 +13,10 @@
                 @Html.DisplayNameFor(model => model.ImageThumbnailUrl)
             </th>
             <th>
-                <p>Buy Now!</p>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+
             </th>
         </tr>
     </thead>
@@ -36,21 +29,26 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            <td width="30%">
-               @* @Html.DisplayFor(modelItem => item.ImageThumbnailUrl)*@
-               <img src="@item.ImageThumbnailUrl" class="rounded" width=40%>
+            <td>
+                <img src="@item.ImageThumbnailUrl" class="rounded" width=10%>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand)
             </td>
             <td>
                 <div class="addToCart">
                 <p class="button">
-                    <a class="btn btn-danger" 
-                       asp-controller="ShoppingCart" 
-                       asp-action="AddToShoppingCart"
-                       asp-route-productId="@item.ProductId">Add to cart</a>
-                </p>
+                    <a class="btn btn-danger" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productId="@item.ProductId">
+                        Add To Cart
+                    </a>
+                    </p>
                 </div>
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<p class="button">
+    <a class="btn buttonn btn-danger" asp-controller="Product" asp-action="List" asp-route-id="0">Back to List</a>
+</p>

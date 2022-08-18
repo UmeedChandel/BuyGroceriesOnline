@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using BuyGroceriesOnline.Models;
 
 namespace BuyGroceriesOnline.Models
 {
@@ -12,6 +13,7 @@ namespace BuyGroceriesOnline.Models
         }
 
         public DbSet<Product> Products { get; set; }
+        
         public DbSet<Category> Categories { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
@@ -324,5 +326,7 @@ namespace BuyGroceriesOnline.Models
             });
 
         }
+
+        public DbSet<BuyGroceriesOnline.Models.ProductMini>? ProductMini { get; set; }
     }
 }

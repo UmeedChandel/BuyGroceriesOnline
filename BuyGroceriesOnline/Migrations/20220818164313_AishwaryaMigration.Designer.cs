@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuyGroceriesOnline.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220818114523_migrationumeed")]
-    partial class migrationumeed
+    [Migration("20220818164313_AishwaryaMigration")]
+    partial class AishwaryaMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

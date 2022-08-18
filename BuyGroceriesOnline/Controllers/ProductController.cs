@@ -30,8 +30,9 @@ namespace BuyGroceriesOnline.Controllers
             if (id > 0)
             {
                 product = GetAllProduct().Where(p => p.CategoryId == id);
-                customClass.CurrentCategory = _categoryRepository.AllCategories.Where(c => c.CategoryId == id).FirstOrDefault().CategoryName;
-                customClass.CategoryDescription = _categoryRepository.AllCategories.Where(c => c.CategoryId == id).FirstOrDefault().Description ;
+                var category = _categoryRepository.AllCategories.Where(c => c.CategoryId == id).FirstOrDefault();
+                customClass.CurrentCategory = category.CategoryName;
+                customClass.CategoryDescription = category.Description ;
                 //product.FirstOrDefault().Category.CategoryName;
             }
             else

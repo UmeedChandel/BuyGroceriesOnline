@@ -4,7 +4,7 @@
 
 namespace BuyGroceriesOnline.Migrations
 {
-    public partial class inititalMigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -1,8 +1,10 @@
-﻿using BuyGroceriesOnline.Models;
+﻿using AutoMapper;
+using BuyGroceriesOnline.Models;
 using BuyGroceriesOnline.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 
 namespace BuyGroceriesOnline.Controllers
 {
@@ -11,11 +13,13 @@ namespace BuyGroceriesOnline.Controllers
     {
         private readonly IProductRepository _productRepository;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IMapper _mapper;
 
-        public ProductController(IProductRepository productRepository, ICategoryRepository categoryRepository)
+        public ProductController(IProductRepository productRepository, ICategoryRepository categoryRepository, IMapper mapper)
         {
             _productRepository = productRepository;
             _categoryRepository = categoryRepository;
+            _mapper = mapper;
         }
 
         private IEnumerable<Product> GetAllProduct()
@@ -30,8 +34,9 @@ namespace BuyGroceriesOnline.Controllers
             if (id > 0)
             {
                 product = GetAllProduct().Where(p => p.CategoryId == id);
-                customClass.CurrentCategory = _categoryRepository.AllCategories.Where(c => c.CategoryId == id).FirstOrDefault().CategoryName;
-                customClass.CategoryDescription = _categoryRepository.AllCategories.Where(c => c.CategoryId == id).FirstOrDefault().Description ;
+                var category = _categoryRepository.AllCategories.Where(c => c.CategoryId == id).FirstOrDefault();
+                customClass.CurrentCategory = category.CategoryName;
+                customClass.CategoryDescription = category.Description ;
                 //product.FirstOrDefault().Category.CategoryName;
             }
             else
@@ -54,6 +59,14 @@ namespace BuyGroceriesOnline.Controllers
         public IActionResult Details(int id)
         {
             return View(GetAllProduct().FirstOrDefault(p => p.ProductId == id));
+        }
+
+        public IActionResult ListMini() //invoking this method from url
+        {
+            var products = _productRepository.AllProduct;
+            var miniProduct = _mapper.Map<ProductMini[]>(products);
+
+            return View(miniProduct);
         }
 
         // Crud Operations

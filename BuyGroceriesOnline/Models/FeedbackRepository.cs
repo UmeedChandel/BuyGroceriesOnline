@@ -8,14 +8,21 @@
         {
             this.appDbContext = appDbContext;
         }
+
+        public IEnumerable<Feedback> GetAllFeedback()
+        {
+            var allFeedback = appDbContext.Feedbacks;
+            return allFeedback;
+          //  throw new NotImplementedException();
+        }
+
         public Feedback InsertFeedback(Feedback feedback)
         {
             
             var insert = this.appDbContext.Feedbacks.Add(feedback);
             this.appDbContext.SaveChanges();
             return insert.Entity;
-            
-           // throw new NotImplementedException();
+
         }
     }
 }

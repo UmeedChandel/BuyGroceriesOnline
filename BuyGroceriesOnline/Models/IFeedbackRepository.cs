@@ -2,6 +2,7 @@
 {
     public interface IFeedbackRepository
     {
+        IEnumerable<Feedback> GetAllFeedback();
         Feedback InsertFeedback(Feedback feedback);
     }
 }

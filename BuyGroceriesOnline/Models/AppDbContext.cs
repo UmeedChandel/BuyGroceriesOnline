@@ -47,11 +47,24 @@ namespace BuyGroceriesOnline.Models
             modelBuilder.Entity<Product>().HasData(new Product
             {
                 ProductId = 1,
-                Name = "Kiwi (3 units)",
+                Name = "Fresh Kiwi (3 units)",
                 Price = 66,
-                ShortDescription = "Onion is a round vegetable with a brown skin that grows underground.",
-                LongDescription =
-                    "Onion is a vegetable which is almost like a staple in Indian food. This is also known to be one of the essential ingredients of raw salads. They come in different colours like white, red or yellow and are quite in demand in cold salads and hot soups.You can dice, slice or cut it in rings and put it in burgers and sandwiches.Onions emit a sharp flavour and fragrance once they are fried; it is due to the sulphur compound in the vegetable.Onions are known to be rich in biotin. Most of the flavonoids which are known as anti - oxidants are concentrated more in the outer layers, so when you peel off the layers, you should remove as little as possible. Onions are known to have antiseptic, antimicrobial and antibiotic properties which help you to get rid of infections. If a piece of onion is inhaled, it can slow down or stop nose bleeding. Those who have sleeping disorders or insomnia can have a good night sleep if they have an onion every day. Onions also help to improve the functions of the digestive system; because it releases the digestive juices and cures any problem related to digestion. Onions, like garlic, are also rich in sulphur compounds. Onions are known to contain manganese, copper, Vitamin B6, Vitamin C, Folic acid, Amino acid and dietary fibers along with phosphorus, folate and copper.",
+                ShortDescription = "",
+                LongDescription = "The kiwi typically grows in the shape of an oval and is roughly around the size of a typical chicken egg. Its skin is camel-colored, fibrous, and coated in a light fuzz. Despite its fuzzy covering, the kiwi’s skin is edible and tart. The kiwi’s flesh is bright green with a unique but pleasing texture and rows of distinctive tiny black seeds, which can also be eaten. Kiwis have a sweet, tart, and bold taste — making them a popular addition to a healthy breakfast or lunch. Kiwis are high in Vitamin C  and dietary fiber and provide a variety of health benefits. This tart fruit can support heart health, digestive health, and immunity. The kiwi is a healthy choice of fruit and is rich with vitamins and antioxidants. Its tart flavor, pleasing texture, and low calorie count make it a delicious and healthy option for snacking, sides, or a unique dessert. The vitamins, fiber, and antioxidants can provide essential health benefits. The flesh is rich with vitamins that stimulate immunity and reduce the risk of disease. ",
+                CategoryId = 1,
+                ImageUrl = "https://media.istockphoto.com/photos/kiwi-picture-id537403487?k=20&m=537403487&s=612x612&w=0&h=4n4Y3IFZCTI12M4pb3enecYrjmFehYSPoCbX_yFwsf8=",
+                InStock = true,
+                ImageThumbnailUrl = "https://media.istockphoto.com/photos/kiwi-picture-id482728017?k=20&m=482728017&s=612x612&w=0&h=TffL8PFEuN1DeQ-p7mjTH7sX2RKoeNTSaG7n3A4reYs=",
+                Brand = "Unbranded",
+            });
+
+            modelBuilder.Entity<Product>().HasData(new Product //fruit
+            {
+                ProductId = 2,
+                Name = "Fresh Plum (250 g)",
+                Price = 78,
+                ShortDescription = "Plums can be as large as a baseball or a small as a cherry when ripe, all grown from the same tree.",
+                LongDescription = "Who are you calling a drupe? The plum, that's who. A drupe is a fruit that has seeds surrounded by rock-like pits. That explains plums' other classification: stone fruit. Plums belong to the same family as peaches, nectarines, and apricots. But plums are much more diverse than their stone-fruit cousins. They can be large or small, with red, purple, green, yellow, or orange skin, and pink, yellow, or orange flesh. One cup of sliced plums has: Calories: 76, Protein: 1 gram, Fat: Less than 1 gram, Carbohydrates: 18 grams, Fiber: 2 grams, Sugar: 16 grams. Plums are also a good source of: Calcium, Magnesium, Phosphorus, Potassium, Vitamin C, Vitamin A, Vitamin K, Folate",
                 CategoryId = 1,
                 ImageUrl = "https://media.istockphoto.com/photos/plums-fresh-plums-picture-id1257344030?k=20&m=1257344030&s=612x612&w=0&h=5bzcEVyMttyc-EkEZebmu-JFOakMQoqiOTOmxVDln2s=",
                 InStock = true,
@@ -61,38 +74,23 @@ namespace BuyGroceriesOnline.Models
 
             modelBuilder.Entity<Product>().HasData(new Product //fruit
             {
-                ProductId = 2,
-                Name = "Plum (250 g)",
-                Price = 78,
-                ShortDescription = "Plums can be as large as a baseball or a small as a cherry when ripe, all grown from the same tree.",
-                LongDescription =
-                "",
-                CategoryId = 1,
-                ImageUrl = "",
-                InStock = true,
-                ImageThumbnailUrl = "",
-                Brand = "Unbranded",
-            });
-
-            modelBuilder.Entity<Product>().HasData(new Product //fruit
-            {
                 ProductId = 3,
-                Name = "Pineapple, 1 Unit (600gm - 1 kg)",
+                Name = "Fresh Pineapple, 1 Unit (600gm - 1 kg)",
                 Price = 49,
                 ShortDescription = "",
                 LongDescription =
                 "",
                 CategoryId = 1,
-                ImageUrl = "",
+                ImageUrl = "https://media.istockphoto.com/photos/pineapple-wallpaper-picture-id172388455?k=20&m=172388455&s=612x612&w=0&h=DKAHOLIpif42V_8XgEFVOey1nYIybn5vVIi7l7gZpVk=",
                 InStock = true,
-                ImageThumbnailUrl = "",
+                ImageThumbnailUrl = "https://media.istockphoto.com/photos/whole-with-slice-ripe-pineapple-isolated-on-white-background-picture-id1064819674?k=20&m=1064819674&s=612x612&w=0&h=WIYJDrmo9L6xh8-l0dCkmCCb9_rIBQhhp4m2MXK_XMc=",
                 Brand = "Unbranded",
             });
 
             modelBuilder.Entity<Product>().HasData(new Product //fruit
             {
                 ProductId = 4,
-                Name = "Sweet Lime / Mosambi, 3 Units  (450 g - 650 g)",
+                Name = "Fresh Sweet Lime / Mosambi, 3 Units  (450 g - 650 g)",
                 Price = 58,
                 ShortDescription = "",
                 LongDescription =
@@ -137,7 +135,7 @@ namespace BuyGroceriesOnline.Models
             modelBuilder.Entity<Product>().HasData(new Product //fruit
             {
                 ProductId = 7,
-                Name = "Sapota Chikoo (250 g)",
+                Name = "Fresh Sapota Chikoo (250 g)",
                 Price = 34,
                 ShortDescription = "",
                 LongDescription =
@@ -152,7 +150,7 @@ namespace BuyGroceriesOnline.Models
             modelBuilder.Entity<Product>().HasData(new Product //fruit
             {
                 ProductId = 8,
-                Name = "Pear Green (2 Units)",
+                Name = "Fresh Pear Green (2 Units)",
                 Price = 69,
                 ShortDescription = "",
                 LongDescription =
@@ -167,30 +165,30 @@ namespace BuyGroceriesOnline.Models
             modelBuilder.Entity<Product>().HasData(new Product //fruit
             {
                 ProductId = 9,
-                Name = "Pomegranate 2 Units  (420 - 500 g)",
+                Name = "Fresh Pomegranate 2 Units  (420 - 500 g)",
                 Price = 108,
                 ShortDescription = "",
                 LongDescription =
                 "",
                 CategoryId = 1,
-                ImageUrl = "",
+                ImageUrl = "https://media.istockphoto.com/photos/pomegranate-seeds-shaping-heart-in-hands-picture-id178590070?k=20&m=178590070&s=612x612&w=0&h=OjR3R4kp9gkaBq4bt5Uxhd5ec8r7tylhPGZhlvVItNU=",
                 InStock = true,
-                ImageThumbnailUrl = "",
+                ImageThumbnailUrl = "https://media.istockphoto.com/photos/one-whole-and-part-of-a-pomegranate-with-pomegranate-seeds-and-leaves-picture-id1066838260?k=20&m=1066838260&s=612x612&w=0&h=AS_QEbGahMNTIDOPGcukKJ_ZBGSjMRBxJ04KbL5J3ZM=",
                 Brand = "Unbranded",
             });
 
             modelBuilder.Entity<Product>().HasData(new Product //fruit
             {
                 ProductId = 10,
-                Name = "Banana Robusta (500 g)",
+                Name = "Fresh Banana Robusta (500 g)",
                 Price = 62,
                 ShortDescription = "",
                 LongDescription =
                 "",
                 CategoryId = 1,
-                ImageUrl = "",
+                ImageUrl = "https://media.istockphoto.com/photos/banana-wallpaper-picture-id172876004?k=20&m=172876004&s=612x612&w=0&h=rzeb9xh2knDf2UYe1obYnaXryrJVFnqji2-DwixLa4Q=",
                 InStock = true,
-                ImageThumbnailUrl = "",
+                ImageThumbnailUrl = "https://media.istockphoto.com/photos/banana-bunch-picture-id173242750?k=20&m=173242750&s=612x612&w=0&h=dgXrAP6otDeY5h6fhy-SRmW-2dFOCKx1_hNS1lLWF7Y=",
                 Brand = "Unbranded",
             });
             //--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -204,9 +202,9 @@ namespace BuyGroceriesOnline.Models
                 LongDescription =
                     "Onion is a vegetable which is almost like a staple in Indian food. This is also known to be one of the essential ingredients of raw salads. They come in different colours like white, red or yellow and are quite in demand in cold salads and hot soups.You can dice, slice or cut it in rings and put it in burgers and sandwiches.Onions emit a sharp flavour and fragrance once they are fried; it is due to the sulphur compound in the vegetable.Onions are known to be rich in biotin. Most of the flavonoids which are known as anti - oxidants are concentrated more in the outer layers, so when you peel off the layers, you should remove as little as possible. Onions are known to have antiseptic, antimicrobial and antibiotic properties which help you to get rid of infections. If a piece of onion is inhaled, it can slow down or stop nose bleeding. Those who have sleeping disorders or insomnia can have a good night sleep if they have an onion every day. Onions also help to improve the functions of the digestive system; because it releases the digestive juices and cures any problem related to digestion. Onions, like garlic, are also rich in sulphur compounds. Onions are known to contain manganese, copper, Vitamin B6, Vitamin C, Folic acid, Amino acid and dietary fibers along with phosphorus, folate and copper.",
                 CategoryId = 2,
-                ImageUrl = "https://rukminim1.flixcart.com/image/832/832/jtsz3bk0/vegetable/k/y/d/5-onion-un-branded-no-whole-original-imafdsyg4ykqcyt4.jpeg?q=70",
+                ImageUrl = "https://media.istockphoto.com/photos/red-onion-picture-id855924496?k=20&m=855924496&s=612x612&w=0&h=MgBB1pafB1ycjDZbkVuNpm_SZ7BxSP8SWbL42VBhEEs=",
                 InStock = true,
-                ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/jtsz3bk0/vegetable/k/y/d/5-onion-un-branded-no-whole-original-imafdsyg4ykqcyt4.jpeg?q=70",
+                ImageThumbnailUrl = "https://media.istockphoto.com/photos/red-onion-with-the-outer-peel-removed-picture-id503144946?k=20&m=503144946&s=612x612&w=0&h=vNQLARfI2jwE0hqv48k12jeju0DwG3v0vULzPHuE3Fw=",
                 Brand = "Organic",
             });
 

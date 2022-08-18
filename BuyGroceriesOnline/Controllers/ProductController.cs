@@ -1,7 +1,9 @@
-﻿using BuyGroceriesOnline.Models;
+﻿using AutoMapper;
+using BuyGroceriesOnline.Models;
 using BuyGroceriesOnline.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 
 namespace BuyGroceriesOnline.Controllers
 {
@@ -9,11 +11,13 @@ namespace BuyGroceriesOnline.Controllers
     {
         private readonly IProductRepository _productRepository;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IMapper mapper;
 
-        public ProductController(IProductRepository productRepository, ICategoryRepository categoryRepository)
+        public ProductController(IProductRepository productRepository, ICategoryRepository categoryRepository, IMapper mapper)
         {
             _productRepository = productRepository;
             _categoryRepository = categoryRepository;
+            this.mapper = mapper;
         }
 
         private IEnumerable<Product> GetAllProduct()
@@ -23,7 +27,8 @@ namespace BuyGroceriesOnline.Controllers
 
         public IActionResult List(int id)
         {
-            IEnumerable<Product> product;
+            var product = _productRepository.AllProduct;
+            var miniProducts = mapper.Map<IEnumerable<ProductMini>> (product);
             CustomClass customClass = new CustomClass();
             if (id > 0)
             {

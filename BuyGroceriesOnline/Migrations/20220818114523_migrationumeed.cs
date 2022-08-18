@@ -5,11 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BuyGroceriesOnline.Migrations
 {
-<<<<<<<< HEAD:BuyGroceriesOnline/Migrations/20220818114939_AishwaryaMigration.cs
-    public partial class AishwaryaMigration : Migration
-========
-    public partial class initialMigration : Migration
->>>>>>>> af78d0f55909f741a75af9213428a82a49db7636:BuyGroceriesOnline/Migrations/20220818100117_initialMigration.cs
+    public partial class migrationumeed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

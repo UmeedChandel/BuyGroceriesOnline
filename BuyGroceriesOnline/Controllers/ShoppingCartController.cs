@@ -56,5 +56,15 @@ namespace BuyGroceriesOnline.Controllers
             _shoppingCart.ClearCart();
             return RedirectToAction("Index");
         }
+
+        public RedirectToActionResult RemoveItem(int productId)
+        {
+            var selectedProduct = _productRepository.AllProduct.FirstOrDefault(p => p.ProductId == productId);
+            if (selectedProduct != null)
+            {
+                _shoppingCart.RemoveItem(selectedProduct);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

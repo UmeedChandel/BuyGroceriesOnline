@@ -14,12 +14,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
-                @*<span class="logo"> <a asp-controller="Home" asp-action="Index"><img src="~/Images/GroceryLogo.jpg" alt="" width="70" height="70" class="d-inline-block align-text-top"></a> </span>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>*@
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><b><i>One Stop Grocery</i></b></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">One Stop Grocery</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -44,17 +39,23 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Order" asp-action="AllFeedback"><i class="bi bi-tags"></i>All Feedbacks</a>
                         </li>
-                        
                         @*<li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>*@
 
                          @await Component.InvokeAsync("CategoryMenu")
 
-                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="ShoppingCart" asp-action="Index"><i class="bi bi-tags"></i>View Cart</a>
-                            @await Component.InvokeAsync("ShoppingCartSummary")
-                         </li> 
+                         <div class="dropdown">
+                            <li class="btncolor text-light btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                               Filter 
+                            </li>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <li><a class="dropdown-item" asp-controller="Filter" asp-action="FilterPriceUp" >Low - High</a></li>
+                                <li><a class="dropdown-item" asp-controller="Filter" asp-action="FilterPriceDown" >High - Low</a></li>
+                                <li><a class="dropdown-item" asp-controller="Filter" asp-action="FilterBrand" >By Brand</a></li>
+                                <li><a class="dropdown-item" asp-controller="Filter" asp-action="FilterStock" >In Stock</a></li>
+                            </ul>
+                         </div>
 
                         <li class="ms-auto">
                             <partial name="_LoginPartial">

@@ -526,6 +526,30 @@ namespace BuyGroceriesOnline.Migrations
                         });
                 });
 
+            modelBuilder.Entity("BuyGroceriesOnline.Models.ProductMini", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
+
+                    b.Property<string>("ImageThumbnailUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("ProductId");
+
+                    b.ToTable("ProductMini");
+                });
+
             modelBuilder.Entity("BuyGroceriesOnline.Models.ShoppingCartItem", b =>
                 {
                     b.Property<int>("ShoppingCartItemId")

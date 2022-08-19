@@ -25,7 +25,6 @@ namespace BuyGroceriesOnline.Models
             order.OrderTotal = _shoppingCart.GetShoppingCartTotal();
 
             order.OrderDetails = new List<OrderDetail>();
-            //adding the order with its details
 
             foreach (var shoppingCartItem in shoppingCartItems)
             {
@@ -41,6 +40,17 @@ namespace BuyGroceriesOnline.Models
 
             _appDbContext.Orders.Add(order);
 
+            _appDbContext.SaveChanges();
+        }
+
+        public void CancelOrder(OrderDetail order)
+        {
+            var orders =
+                    _appDbContext.OrderDetails.SingleOrDefault(s => s.OrderDetailId == order.OrderDetailId);
+            if (orders != null)
+            {
+                _appDbContext.OrderDetails.Remove(orders);
+            }
             _appDbContext.SaveChanges();
         }
     }

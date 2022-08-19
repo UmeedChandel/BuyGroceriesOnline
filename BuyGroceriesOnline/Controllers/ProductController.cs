@@ -22,6 +22,7 @@ namespace BuyGroceriesOnline.Controllers
             _mapper = mapper;
         }
 
+
         private IEnumerable<Product> GetAllProduct()
         {
             return _productRepository.AllProduct;
@@ -138,7 +139,7 @@ namespace BuyGroceriesOnline.Controllers
         {
             _productRepository.DeleteProduct(productId);
             return RedirectToAction("List");
-        }
+        }      
 
     }
 }

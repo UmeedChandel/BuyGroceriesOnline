@@ -1,0 +1,38 @@
+﻿@using BuyGroceriesOnline.ViewModels
+@model CustomClass
+
+@{
+    ViewData["Title"] = "ProductOfTheWeekAPI";
+}
+
+<h1 align="center">Deal of the week</h1>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+@foreach (var product in Model.Products)
+{
+    <div class="col">
+    <div class="card" style="width: 18rem;">
+        <div class="thumbnail">
+            <img src="@product.ImageThumbnailUrl" alt="" class="card-img-top embed-responsive-item">
+            <div class="caption">
+                <h3 class="pull-right">Price: Rs.@product.Price</h3>
+                <h3 class="card-title">
+                   <a asp-controller="Product" asp-action="Details" asp-route-id="@product.ProductId" >@product.Name</a>
+                </h3>
+                <h6 class="card-text">Product Info: @product.ShortDescription</h6>
+                <h6 class="card-text">Brand: @product.Brand</h6>
+            </div>
+            <div class="addToCart">
+                <p class="button">
+                    <a class="btn btn-danger" 
+                       asp-controller="ShoppingCart" 
+                       asp-action="AddToShoppingCart"
+                       asp-route-productId="@product.ProductId">Add to cart</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br />
+}
+</div>

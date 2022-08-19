@@ -22,6 +22,16 @@ namespace BuyGroceriesOnline.Models
 
             string cartId = session.GetString("CartId") ?? Guid.NewGuid().ToString();
 
+            var userContext = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.User;
+
+            var user = userContext.Identity.Name;
+
+            session.SetString("manager", "0");
+            if (user == "manager@gmail.com")
+            {
+                session.SetString("manager", "1");
+            }
+
             session.SetString("CartId", cartId);
 
             return new ShoppingCart(context) { ShoppingCartId = cartId };

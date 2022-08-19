@@ -6,10 +6,14 @@
 
 <h1>CategoryList</h1>
 
-<p>
-    <a asp-action="Create" class="btn btn-primary">
-        <i class="bi bi-folder-plus"></i> &nbsp;Create New</a>
-</p>
+@if(Context.Session.GetString("manager")=="1")
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-folder-plus"></i> &nbsp;Create New</a>
+    </p>
+}
+
 <table class="table table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
@@ -19,24 +23,30 @@
             <th>
                 @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th></th>
+            @if (Context.Session.GetString("manager") == "1")
+            {
+                <th></th>
+            }
+            
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td align="center">
+            <td>
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
-            <td width="40%" align="center">
+            <td width="40%">
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
-            <td align="center">
-                <a asp-action="Edit" asp-route-id="@item.CategoryId"
-                class="btn btn-primary mx-2">Edit</a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoryId"
-                class="btn btn-danger mx-2">Delete</a>
-            </td>
+            @if(Context.Session.GetString("manager")=="1")
+            {
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-primary mx-2">Edit</a> 
+                    <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-danger mx-2">Delete</a>   
+                </td>
+            }
+                
         </tr>
 }
     </tbody>

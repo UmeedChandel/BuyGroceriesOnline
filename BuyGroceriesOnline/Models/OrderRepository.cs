@@ -1,4 +1,6 @@
-﻿namespace BuyGroceriesOnline.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace BuyGroceriesOnline.Models
 {
     public class OrderRepository : IOrderRepository
     {
@@ -10,6 +12,10 @@
             _appDbContext = appDbContext;
             _shoppingCart = shoppingCart;
         }
+
+        public IEnumerable<OrderDetail> OrderDetails => _appDbContext.OrderDetails
+            .Include(c => c.Order)
+            .Include(c => c.Product);
 
         public void CreateOrder(Order order)
         {

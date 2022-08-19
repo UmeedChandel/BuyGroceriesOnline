@@ -1,23 +1,27 @@
 ﻿@using BuyGroceriesOnline.ViewModels
-@model CustomClass
-@{
-    ViewData["Title"] = "List";
-}
 
-<h1>@Model.CurrentCategory</h1>
-<h3>@Model.CategoryDescription</h3>
-@if(Context.Session.GetString("manager")=="1")
+<br/>
+<br/>
+<h1>Search Results...</h1>
+
+@if (TempData["Message"] != null)
 {
-    <p>
-        <a asp-action="Create" class="btn btn-primary">
-            <i class="bi bi-folder-plus"></i> &nbsp;Create New
-        </a>
-    </p>
+    <div>
+        <strong>Information!</strong> @TempData["Message"]
+        <br>
+        <br>
+        <p class="button">
+            <a class="btn btn-primary" 
+                asp-controller="Product" 
+                asp-action="List">Back to All Products
+            </a>
+        </p>
+    </div>
 }
-
-
-<div class="row row-cols-1 row-cols-md-3 g-4">
-@foreach (var product in Model.Products)
+else
+{
+   <div class="row row-cols-1 row-cols-md-3 g-4">
+@foreach (var product in Model)
 {
     <div class="col">
     <div class="card" style="width: 18rem;">
@@ -44,4 +48,6 @@
     </div>
     <br />
 }
-</div>
+</div> 
+}
+

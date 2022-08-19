@@ -1,4 +1,6 @@
-﻿namespace BuyGroceriesOnline.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace BuyGroceriesOnline.Models
 {
     public class CategoryRepository : ICategoryRepository
     {
@@ -7,7 +9,7 @@
         {
             _appDbContext = appDbContext;
         }
-        public IEnumerable<Category> AllCategories => _appDbContext.Categories;
+        public IEnumerable<Category> AllCategories => _appDbContext.Categories.Include(c=>c.Products);
 
         public Category DeleteCategory(int categoryId)
         {

@@ -51,6 +51,24 @@ namespace BuyGroceriesOnline.Controllers
             return View(customClass);
         }
 
+        public IActionResult ListCategory()
+        {
+            var categoryList = _categoryRepository.AllCategories;
+            return View(categoryList);
+        }
+
+        public IActionResult SearchButton(string Name)
+        {
+            if(String.IsNullOrEmpty(Name))
+            {
+                TempData["Message"] = "enter valid product name!";
+                return View();
+            }
+            IEnumerable<Product> product = new List<Product>();
+            product = _productRepository.AllProduct.Where(s => s.Name.ToUpper().Contains(Name.ToUpper()));
+            return View(product);
+        }
+
         public IActionResult ProductOfWeek()
         {
             return View(_productRepository.ProductOfTheWeek);

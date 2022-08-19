@@ -1,4 +1,6 @@
-﻿namespace BuyGroceriesOnline.Models
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace BuyGroceriesOnline.Models
 {
     public class OrderRepository : IOrderRepository
     {
@@ -11,6 +13,10 @@
             _shoppingCart = shoppingCart;
         }
 
+        public IEnumerable<OrderDetail> OrderDetails => _appDbContext.OrderDetails
+            .Include(c => c.Order)
+            .Include(c => c.Product);
+
         public void CreateOrder(Order order)
         {
             order.OrderPlaced = DateTime.Now;
@@ -19,7 +25,6 @@
             order.OrderTotal = _shoppingCart.GetShoppingCartTotal();
 
             order.OrderDetails = new List<OrderDetail>();
-            //adding the order with its details
 
             foreach (var shoppingCartItem in shoppingCartItems)
             {
@@ -35,6 +40,17 @@
 
             _appDbContext.Orders.Add(order);
 
+            _appDbContext.SaveChanges();
+        }
+
+        public void CancelOrder(OrderDetail order)
+        {
+            var orders =
+                    _appDbContext.OrderDetails.SingleOrDefault(s => s.OrderDetailId == order.OrderDetailId);
+            if (orders != null)
+            {
+                _appDbContext.OrderDetails.Remove(orders);
+            }
             _appDbContext.SaveChanges();
         }
     }

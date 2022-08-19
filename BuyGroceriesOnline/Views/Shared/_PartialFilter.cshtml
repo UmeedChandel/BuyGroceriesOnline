@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<BuyGroceriesOnline.Models.Product>
 
-<table class="table">
+<table class="table table-bordered table-striped">
     <thead>
-        <tr>
+        <tr class="center">
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -16,23 +16,23 @@
                 @Html.DisplayNameFor(model => model.Brand)
             </th>
             <th>
-
+                
             </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td align="center">
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
-            <td>
+            <td width="10%" align="center">
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-            <td>
-                <img src="@item.ImageThumbnailUrl" class="rounded" width=10%>
+            <td width="30%" align="center">
+                <img src="@item.ImageThumbnailUrl" class="rounded" width=30%>
             </td>
-            <td>
+            <td width="20%" align="center">
                 @Html.DisplayFor(modelItem => item.Brand)
             </td>
             <td>

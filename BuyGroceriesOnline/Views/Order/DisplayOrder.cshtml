@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BuyGroceriesOnline.Models.OrderDetail>
+
+@{
+    ViewData["Title"] = "CheckoutComplete";
+}
+
+<h1>CheckoutComplete</h1>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order.OrderTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order.Email)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @(item.Amount * item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order.Email)
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@item.OrderDetailId">Cancel Order</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

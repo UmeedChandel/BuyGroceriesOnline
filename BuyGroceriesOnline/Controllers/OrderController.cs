@@ -1,4 +1,5 @@
 ﻿using BuyGroceriesOnline.Models;
+using BuyGroceriesOnline.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BuyGroceriesOnline.Controllers
@@ -8,12 +9,14 @@ namespace BuyGroceriesOnline.Controllers
         private readonly IOrderRepository _orderRepository;
         private readonly ShoppingCart _shoppingCart;
         private readonly IFeedbackRepository _FeedbackRepository;
+        private readonly IProductRepository _productRepository;
 
-        public OrderController(IOrderRepository orderRepository, ShoppingCart shoppingCart, IFeedbackRepository FeedbackRepository)
+        public OrderController(IOrderRepository orderRepository, ShoppingCart shoppingCart, IFeedbackRepository FeedbackRepository , IProductRepository productRepository)
         {
             _orderRepository = orderRepository;
             _shoppingCart = shoppingCart;
             this._FeedbackRepository = FeedbackRepository;
+            _productRepository = productRepository;
         }
 
         public IActionResult Checkout()
@@ -45,6 +48,10 @@ namespace BuyGroceriesOnline.Controllers
         {
             ViewBag.CheckoutCompleteMessage = "Thank You for your order. Hope your experience was Good!";
             return View();
+        }
+        public IActionResult DisplayOrder(int id)
+        {
+            return View(_orderRepository.OrderDetails);
         }
         
         

@@ -51,6 +51,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Product}/{action=List}/{id?}");
+    pattern: "{controller=Product}/{action=ProductOfWeek}/{id?}");
 app.MapRazorPages();
 app.Run();

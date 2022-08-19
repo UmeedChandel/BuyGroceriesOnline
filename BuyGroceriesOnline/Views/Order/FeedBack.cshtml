@@ -8,6 +8,7 @@
 
 
 <hr />
+<div>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="CreateFeedBack" method="post">
@@ -38,14 +39,20 @@
                 <span asp-validation-for="FeedBack" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Submit Feedback" class="btn btn-primary" />
+                <input type="submit" value="Submit Feedback" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
+</div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <p class="button">
+      <a class="btn btn-primary" 
+         asp-controller="Product" 
+         asp-action="List">Back to All Products
+      </a>
+   </p>
 </div>
 
 @section Scripts {

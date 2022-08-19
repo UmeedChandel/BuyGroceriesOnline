@@ -25,13 +25,13 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            <td align="center">
                 @Html.DisplayFor(modelItem => item.CategoryName)
             </td>
-            <td width="40%">
+            <td width="40%" align="center">
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
-            <td>
+            <td align="center">
                 <a asp-action="Edit" asp-route-id="@item.CategoryId"
                 class="btn btn-primary mx-2">Edit</a> |
                 <a asp-action="Delete" asp-route-id="@item.CategoryId"

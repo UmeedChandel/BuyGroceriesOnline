@@ -1,13 +1,12 @@
-﻿@model IEnumerable<BuyGroceriesOnline.Models.Product>
-<br>
-<br>
+﻿@model IEnumerable<BuyGroceriesOnline.Models.Category>
+
 <div class="row row-cols-1 row-cols-md-3 g-4">
-
-
-@foreach (var product in Model)
+@foreach (var category in Model)
 {
-    <div class="col">
-    <div class="card" style="width: 22rem; padding:20px;">
+    <h3>@category.CategoryName</h3>
+        @foreach(var product in category.Products){
+            <div class="col">
+    <div class="card" style="width: 18rem;">
         <div class="thumbnail">
             <img src="@product.ImageThumbnailUrl" alt="" class="card-img-top embed-responsive-item">
             <div class="caption">
@@ -33,5 +32,8 @@
     </div>
     </div>
     <br />
+            
+        }
+        
 }
 </div>

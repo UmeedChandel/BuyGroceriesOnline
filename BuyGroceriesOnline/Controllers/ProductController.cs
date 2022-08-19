@@ -52,7 +52,8 @@ namespace BuyGroceriesOnline.Controllers
 
         public IActionResult ListCategory()
         {
-            return View(GetAllProduct());
+            var categoryList = _categoryRepository.AllCategories;
+            return View(categoryList);
         }
 
         public IActionResult SearchButton(string Name)

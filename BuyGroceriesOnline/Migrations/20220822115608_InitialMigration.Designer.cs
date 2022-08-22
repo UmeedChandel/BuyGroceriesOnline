@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuyGroceriesOnline.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220818164313_AishwaryaMigration")]
-    partial class AishwaryaMigration
+    [Migration("20220822115608_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -107,6 +107,11 @@ namespace BuyGroceriesOnline.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
+                    b.Property<string>("EmailId")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("FeedBack")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -117,6 +122,11 @@ namespace BuyGroceriesOnline.Migrations
                         .HasColumnType("nvarchar(15)");
 
                     b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
+
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
@@ -279,14 +289,14 @@ namespace BuyGroceriesOnline.Migrations
                             ProductId = 1,
                             Brand = "Unbranded",
                             CategoryId = 1,
-                            ImageThumbnailUrl = "https://media.istockphoto.com/photos/red-cherry-plum-with-green-leaves-isolated-on-white-background-picture-id687478414?k=20&m=687478414&s=612x612&w=0&h=eI2g4RbgFznJDVsUvmu5JkrG16XupOLxIrT3xRxMKJ8=",
-                            ImageUrl = "https://media.istockphoto.com/photos/plums-fresh-plums-picture-id1257344030?k=20&m=1257344030&s=612x612&w=0&h=5bzcEVyMttyc-EkEZebmu-JFOakMQoqiOTOmxVDln2s=",
+                            ImageThumbnailUrl = "https://previews.123rf.com/images/yurakp/yurakp1512/yurakp151200024/50197144-tasty-kiwis-isolated-on-the-white-background-.jpg",
+                            ImageUrl = "https://previews.123rf.com/images/yurakp/yurakp1512/yurakp151200024/50197144-tasty-kiwis-isolated-on-the-white-background-.jpg",
                             InStock = true,
                             IsProductOfTheWeek = false,
-                            LongDescription = "Onion is a vegetable which is almost like a staple in Indian food. This is also known to be one of the essential ingredients of raw salads. They come in different colours like white, red or yellow and are quite in demand in cold salads and hot soups.",
+                            LongDescription = "The kiwi typically grows in the shape of an oval and is roughly around the size of a typical chicken egg. Its skin is camel-colored, fibrous, and coated in a light fuzz. Despite its fuzzy covering, the kiwi’s skin is edible and tart. The kiwi’s flesh is bright green with a unique but pleasing texture and rows of distinctive tiny black seeds, which can also be eaten. Kiwis have a sweet, tart, and bold taste — making them a popular addition to a healthy breakfast or lunch. Kiwis are high in Vitamin C  and dietary fiber and provide a variety of health benefits. This tart fruit can support heart health, digestive health, and immunity. The kiwi is a healthy choice of fruit and is rich with vitamins and antioxidants. Its tart flavor, pleasing texture, and low calorie count make it a delicious and healthy option for snacking, sides, or a unique dessert. The vitamins, fiber, and antioxidants can provide essential health benefits. The flesh is rich with vitamins that stimulate immunity and reduce the risk of disease.  Store them in a cool, dry place away from direct sunlight. Cut and serve it chilled. Blend them into thick milkshakes, smoothies, juices. Add them in salads and bake delicious pies. The nutritive value and flavour are retained even on cooking.",
                             Name = "Kiwi (3 units)",
                             Price = 66m,
-                            ShortDescription = "Onion is a round vegetable with a brown skin that grows underground."
+                            ShortDescription = "One Kiwi contains a full day requirement of vitamin C."
                         },
                         new
                         {

@@ -6,46 +6,61 @@
 
 <h1 align="center">All Feedbacks</h1>
 
-<table class="table">
+<table class="table table-bordered table-striped" style="width:100%">
     <thead>
         <tr>
+            
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.LastName)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Country)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.City)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.FeedBack)
             </th>
-            <th></th>
+            <th>Feedback Operations</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+             
+            <td>              
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LastName)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Country)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.City)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.FeedBack)
+            </td>
+             <td>
+                 <p class="button">
+                    <a class="btn btn-primary"  asp-controller="Order" asp-action="FeedbackDetails" asp-route-id="@item.FeedbackId">Details</a> | 
+                    <a class="btn btn-danger"  asp-controller="Order" asp-action="DeleteFeedback" asp-route-id="@item.FeedbackId">Delete</a>
+                 </p>         
             </td>
         </tr>
 }
     </tbody>
 </table>
+
+<div>
+    <p class="button">
+        <br />
+       <a class="btn btn-primary"  asp-controller="Order" asp-action="AllFeedback">Back to Feedbacks</a>
+    </p>
+</div>

@@ -99,5 +99,23 @@ namespace BuyGroceriesOnline.Controllers
             var allFeedback =  _FeedbackRepository.GetAllFeedback();
             return View(allFeedback);
         }
+
+        public IActionResult FeedbackDetails(int id)
+        {
+            return View(_FeedbackRepository.GetAllFeedback().FirstOrDefault(f => f.FeedbackId == id));
+        }
+
+        public ViewResult DeleteFeedback(int id)
+        {
+            var deleteFeedback = _FeedbackRepository.GetAllFeedback().FirstOrDefault(f => f.FeedbackId == id);
+            return View(deleteFeedback);
+        }
+
+        [HttpPost]
+        public IActionResult RemoveFeedback(int feedbackId)
+        {
+            _FeedbackRepository.DeleteFeedback(feedbackId);
+            return RedirectToAction("AllFeedback");
+        }
     }
 }

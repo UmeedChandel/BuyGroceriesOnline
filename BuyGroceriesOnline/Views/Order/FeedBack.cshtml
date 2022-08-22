@@ -9,10 +9,10 @@
 
 <hr />
 <div>
-<div class="row">
+<div class="row" >
     <div class="col-md-4">
-        <form asp-action="CreateFeedBack" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="CreateFeedBack" method="post" >
+            <div asp-validation-summary="ModelOnly" class="text-danger" ></div>
             <div class="form-group" >
                 <label asp-for="FirstName" class="control-label"></label>
                 <input asp-for="FirstName" class="form-control" />
@@ -34,26 +34,50 @@
                 <span asp-validation-for="City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FeedBack" class="control-label"></label>
-                <input asp-for="FeedBack" class="form-control" />
-                <span asp-validation-for="FeedBack" class="text-danger"></span>
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Submit Feedback" class="btn btn-success" />
+                <label asp-for="EmailId" class="control-label"></label>
+                <input asp-for="EmailId" class="form-control" />
+                <span asp-validation-for="EmailId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FeedBack" class="control-label"></label>
+               @* <input asp-for="FeedBack" class="text-box" />*@
+                
+               <div class="col-75">    
+                    <textarea id="FeedBack" name="FeedBack" placeholder="Write something.." style="height:200px"></textarea>    
+               </div> 
+                <span asp-validation-for="FeedBack" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <div class="row">
+                  <input type="submit" value="Submit Feedback" class="btn btn-success" />
+                  <br />
+                  <div align="center">
+                       <p class="button">
+                           <br />
+                         <a class="btn btn-primary"  asp-controller="Product" asp-action="List">Back to All Products</a>
+                        </p>
+                  </div>
+                </div>
             </div>
         </form>
     </div>
 </div>
 </div>
 
-<div>
+@*<div align="center">
     <p class="button">
       <a class="btn btn-primary" 
          asp-controller="Product" 
          asp-action="List">Back to All Products
       </a>
    </p>
-</div>
+</div>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

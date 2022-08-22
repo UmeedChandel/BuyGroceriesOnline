@@ -33,6 +33,16 @@ namespace BuyGroceriesOnline.Models
         [RegularExpression(@"^[a-zA-Z\s]{1,10}$", ErrorMessage = "Numbers and Special Characters are not allowed. Please enter the valid City")]
         public string City { get; set; }
 
+        [Display(Name = "Phone Number")]
+        [StringLength(10, MinimumLength = 10)]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
+
+        [Display(Name = "Email ID")]
+        [StringLength(50)]
+        [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", ErrorMessage = "Enter Valid Email Id.")]
+        public string EmailId { get; set; }
+
         [Required(ErrorMessage = "Please Enter your Feedback ")]
         public string FeedBack{ get; set; }
     }

@@ -4,7 +4,7 @@
 
 namespace GroceryAPI.Migrations
 {
-    public partial class ApiInitialMigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

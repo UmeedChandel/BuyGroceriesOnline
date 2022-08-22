@@ -78,8 +78,8 @@
                   </li>
                         @if (Context.Session.GetString("manager") == "0")
                         {
-                            <li class="nav-item">
-                                <a class="nav-link" asp-controller="Order" asp-action="FeedBack"><i class="bi bi-chat-left"></i> Feedback</a>
+                            <li class="nav-item" align="center">
+                                <a class="nav-link" asp-controller="Order" asp-action="FeedBack"><i class="bi bi-chat-center"></i> Feedback</a>
                             </li>
                         }
                         @if(Context.Session.GetString("manager")=="1")
@@ -104,8 +104,11 @@
               </div>
             </div>
         </nav>
-
     </header>
+
+
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -126,3 +129,4 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+

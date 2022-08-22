@@ -61,6 +61,58 @@ namespace GroceryAPI.Controllers
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, "Server Error");
             }
-        }       
+        }
+        
+        [HttpPost]
+        [Route("InsertProduct")] 
+        public IActionResult InsertProduct(Product product)
+        {
+            try
+            {
+                var insertProduct = _productRepository.InsertProduct(product);
+                //return CreatedAtRoute("GetProduct", new { id = insertProduct.ProductId }, insertProduct);
+                return Ok(insertProduct);
+            }
+
+            catch (Exception)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Server Error");
+            }
+        }
+
+        [HttpPut]
+        [Route("UpdateProduct")]
+        public IActionResult UpdateProduct(Product product)
+        {
+            try
+            {
+                var updateProduct = _productRepository.UpdateProduct(product);
+                return Ok(updateProduct);
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Server Error");
+            }
+        }
+
+        [HttpDelete]
+        [Route("DeleteProduct")]
+        public IActionResult DeleteProduct(int productId)
+        {
+            try
+            {
+                var products = _productRepository.AllProduct.FirstOrDefault(p => p.ProductId == productId);
+                if (products == null)
+                {
+                    return BadRequest("Product ID Not Found");
+                }
+                var deleteProduct = _productRepository.DeleteProduct(productId);
+                return Ok(deleteProduct);
+            }
+            catch (Exception)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, "Server Error");
+            }
+        }
     }
 }

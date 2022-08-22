@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GroceryAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220822070720_InitialMigration")]
+    [Migration("20220822162313_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

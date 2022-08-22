@@ -12,7 +12,7 @@ namespace BuyGroceriesOnline.Models
 
         public IEnumerable<Product> AllProduct => _appDbContext.Products.Include(c => c.Category);
 
-        public IEnumerable<Product> ProductOfTheWeek => _appDbContext.Products.Where(product => product.IsProductOfTheWeek);
+        public IEnumerable<Product> ProductOfTheWeek => _appDbContext.Products.Where(product => product.IsProductOfTheWeek).Include(c=>c.Category);
 
         public Product GetProductById(int productId)
         {

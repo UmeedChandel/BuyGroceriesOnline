@@ -9,15 +9,17 @@
 <div>
     <h4>Product</h4>
     <hr />
-    <div class="addToCart">
-        <p class="button">
-           <a class="btn btn-danger" 
-               asp-controller="ShoppingCart" 
-               asp-action="AddToShoppingCart"
-               asp-route-productId="@Model.ProductId">Add to cart
-           </a>
-        </p>
-    </div>
+    @if(Context.Session.GetString("manager")=="0")
+    {
+         <div class="addToCart">
+            <p class="button">
+                <a class="btn btn-danger" 
+                   asp-controller="ShoppingCart" 
+                   asp-action="AddToShoppingCart"
+                   asp-route-productId="@Model.ProductId">Add to cart</a>
+            </p>
+         </div>
+    }
             <br />
     <dl class="row">
         <dt class = "col-sm-2">

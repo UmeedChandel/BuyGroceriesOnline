@@ -25,14 +25,17 @@
 
                         </div>
                         <br>
-                        <div class="addToCart">
-                            <p class="button">
-                                <a class="btn btn-danger" 
-                                   asp-controller="ShoppingCart" 
-                                   asp-action="AddToShoppingCart"
-                                   asp-route-productId="@product.ProductId">Add to cart</a>
-                            </p>
-                        </div>
+                        @if(Context.Session.GetString("manager")=="0")
+                        {
+                             <div class="addToCart">
+                                <p class="button">
+                                    <a class="btn btn-danger" 
+                                       asp-controller="ShoppingCart" 
+                                       asp-action="AddToShoppingCart"
+                                       asp-route-productId="@product.ProductId">Add to cart</a>
+                                </p>
+                             </div>
+                        }
                     </div>
                 </div>
             </div>

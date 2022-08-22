@@ -1,9 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace GroceryAPI.Models
 {
     public class Product
     {
+
         public int ProductId { get; set; }
 
         [Display(Name = "Product Name")]
@@ -33,7 +36,8 @@ namespace GroceryAPI.Models
         public bool InStock { get; set; }
         [Display(Name = "Category Id")]
         public int CategoryId { get; set; }
-
+        [BindNever]
+        [ValidateNever]
         public Category Category { get; set; }
     }
 }

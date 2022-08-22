@@ -63,8 +63,14 @@ namespace BuyGroceriesOnline.Controllers
 
             return View(details);
         }
-
-        public RedirectToActionResult CancelOrderItem(int id)
+        
+        public IActionResult CancelOrder(int id)
+        {
+            var selectedOrder = _orderRepository.OrderDetails.FirstOrDefault(p => p.OrderDetailId == id);
+            return View(selectedOrder);
+        }
+        [HttpPost]
+        public IActionResult CancelOrderItem(int id)
         {
             var selectedOrder = _orderRepository.OrderDetails.FirstOrDefault(p => p.OrderDetailId == id);
 

@@ -28,8 +28,8 @@ namespace BuyGroceriesOnline.Models
 
         public Category UpdateCategory(Category category)
         {
-            var entry = _appDbContext.Categories.Update(category);
-            _appDbContext.SaveChanges();
+            var entry = this._appDbContext.Categories.Update(category);
+            this._appDbContext.SaveChanges();
             return entry.Entity;
         }
     }

@@ -28,9 +28,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.ImageThumbnailUrl)
             </th>
-            <th>
-                <p>Buy Now!</p>
-            </th>
+             @if(Context.Session.GetString("manager")=="0")
+             {
+                 <th>
+                     <p>Buy Now!</p>
+                 </th>
+             }            
         </tr>
     </thead>
     <tbody>
@@ -45,16 +48,21 @@
             <td width="30%">
                <img src="@item.ImageThumbnailUrl" class="rounded" width=40%>
             </td>
-            <td>
-                <div class="addToCart">
-                <p class="button">
-                    <a class="btn btn-danger" 
-                       asp-controller="ShoppingCart" 
-                       asp-action="AddToShoppingCart"
-                       asp-route-productId="@item.ProductId">Add to cart</a>
-                </p>
-                </div>
-            </td>
+            
+            @if(Context.Session.GetString("manager")=="0")
+            {
+                <td>
+                    <div class="addToCart">
+                       <p class="button">
+                           <a class="btn btn-danger" 
+                              asp-controller="ShoppingCart" 
+                              asp-action="AddToShoppingCart"
+                              asp-route-productId="@item.ProductId">Add to cart</a>
+                       </p>
+                    </div>
+                 </td>
+            }
+            
         </tr>
 }
     </tbody>

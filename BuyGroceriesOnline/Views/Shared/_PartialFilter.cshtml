@@ -18,9 +18,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.Brand)
             </th>
-            <th>
-                Purchase
-            </th>
+            
+             @if(Context.Session.GetString("manager")=="0")
+             {
+                 <th>
+                      <p>Purchase</p>
+                 </th>
+             }
+            
         </tr>
     </thead>
     <tbody>
@@ -38,15 +43,21 @@
             <td width="20%" align="center">
                 @Html.DisplayFor(modelItem => item.Brand)
             </td>
-            <td>
-                <div class="addToCart">
-                <p class="button">
-                    <a class="btn btn-danger" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productId="@item.ProductId">
-                        Add To Cart
-                    </a>
-                    </p>
-                </div>
-            </td>
+            
+             @if(Context.Session.GetString("manager")=="0")
+             {
+                 <td>
+                    <div class="addToCart">
+                       <p class="button">
+                           <a class="btn btn-danger" 
+                              asp-controller="ShoppingCart" 
+                              asp-action="AddToShoppingCart"
+                              asp-route-productId="@item.ProductId">Add to cart</a>
+                       </p>
+                    </div>
+                   </td>
+             }
+           
         </tr>
 }
     </tbody>

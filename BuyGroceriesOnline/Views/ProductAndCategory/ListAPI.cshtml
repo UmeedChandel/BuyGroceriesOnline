@@ -33,14 +33,17 @@
                 <h6 class="card-text">Product Info: @product.ShortDescription</h6>
                 <h6 class="card-text">Brand: @product.Brand</h6>
             </div>
-            <div class="addToCart">
-                <p class="button">
-                    <a class="btn btn-danger" 
-                       asp-controller="ShoppingCart" 
-                       asp-action="AddToShoppingCart"
-                       asp-route-productId="@product.ProductId">Add to cart</a>
-                </p>
-            </div>
+            @if(Context.Session.GetString("manager")=="0")
+            {
+                 <div class="addToCart">
+                    <p class="button">
+                        <a class="btn btn-danger" 
+                           asp-controller="ShoppingCart" 
+                           asp-action="AddToShoppingCart"
+                           asp-route-productId="@product.ProductId">Add to cart</a>
+                    </p>
+                 </div>
+            }
         </div>
     </div>
     </div>

@@ -12,13 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuyGroceriesOnline.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-<<<<<<<< HEAD:BuyGroceriesOnline/Migrations/20220822115608_InitialMigration.Designer.cs
-    [Migration("20220822115608_InitialMigration")]
+    [Migration("20220822163228_InitialMigration")]
     partial class InitialMigration
-========
-    [Migration("20220822132259_seedmoredata")]
-    partial class seedmoredata
->>>>>>>> 24730c53ce2a223d76b602cb92c25b2cb04b444f:BuyGroceriesOnline/Migrations/20220822132259_seedmoredata.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -65,8 +60,8 @@ namespace BuyGroceriesOnline.Migrations
                         new
                         {
                             CategoryId = 3,
-                            CategoryName = "Cereals",
-                            Description = "We should eat fresh fruits to keep ourselves healthy. "
+                            CategoryName = "Medicines",
+                            Description = "Medicines can treat diseases and improve your health. If you are like most people, you need to take medicine at some point in your life. "
                         },
                         new
                         {
@@ -89,7 +84,7 @@ namespace BuyGroceriesOnline.Migrations
                         new
                         {
                             CategoryId = 7,
-                            CategoryName = "Beauty & Makeup",
+                            CategoryName = "Beauty & Hygiene",
                             Description = "These include vitamins A (beta-carotene), C and E, magnesium, zinc, phosphorous and folic acid."
                         });
                 });
@@ -112,11 +107,6 @@ namespace BuyGroceriesOnline.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<string>("EmailId")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<string>("FeedBack")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -127,11 +117,6 @@ namespace BuyGroceriesOnline.Migrations
                         .HasColumnType("nvarchar(15)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
@@ -291,49 +276,21 @@ namespace BuyGroceriesOnline.Migrations
                     b.HasData(
                         new
                         {
-                            ProductId = 117,
-                            Brand = "Fresho ",
-                            CategoryId = 1,
-                            ImageThumbnailUrl = "https://www.bigbasket.com/media/uploads/p/l/40022647-2_1-fresho-papaya-organically-grown.jpg",
-                            ImageUrl = "https://www.bigbasket.com/media/uploads/p/l/40022647-2_1-fresho-papaya-organically-grown.jpg",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "Papayas reduce the risk of macular degeneration, a disease that affects the eyes as people age.They prevent asthma and cancer.Mashed papayas help in wound healing and preventing infections.",
-                            Name = "Papaya",
-                            Price = 40m,
-                            ShortDescription = "Organically Grown, 1 pc (approx. 500 -1 kg)"
-                        },
-                        new
-                        {
-                            ProductId = 118,
-                            Brand = "Fresho ",
-                            CategoryId = 1,
-                            ImageThumbnailUrl = "https://www.bigbasket.com/media/uploads/p/l/40023482-2_1-fresho-watermelon-organically-grown.jpg",
-                            ImageUrl = "https://www.bigbasket.com/media/uploads/p/l/40023482-2_1-fresho-watermelon-organically-grown.jpg",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "Watermelons have excellent hydrating properties with 90% water content.Rich in anti - oxidant flavonoids that protects against prostate,breast,colon,pancreatic and lung cancers.",
-                            Name = "Watermelon",
-                            Price = 45m,
-                            ShortDescription = "Organically Grown (Loose), 1 pc (approx. 1 -3 kg)"
-                        },
-                        new
-                        {
                             ProductId = 1,
                             Brand = "Unbranded",
                             CategoryId = 1,
-                            ImageThumbnailUrl = "https://previews.123rf.com/images/yurakp/yurakp1512/yurakp151200024/50197144-tasty-kiwis-isolated-on-the-white-background-.jpg",
-                            ImageUrl = "https://previews.123rf.com/images/yurakp/yurakp1512/yurakp151200024/50197144-tasty-kiwis-isolated-on-the-white-background-.jpg",
+                            ImageThumbnailUrl = "https://media.istockphoto.com/photos/red-cherry-plum-with-green-leaves-isolated-on-white-background-picture-id687478414?k=20&m=687478414&s=612x612&w=0&h=eI2g4RbgFznJDVsUvmu5JkrG16XupOLxIrT3xRxMKJ8=",
+                            ImageUrl = "https://media.istockphoto.com/photos/plums-fresh-plums-picture-id1257344030?k=20&m=1257344030&s=612x612&w=0&h=5bzcEVyMttyc-EkEZebmu-JFOakMQoqiOTOmxVDln2s=",
                             InStock = true,
                             IsProductOfTheWeek = false,
-                            LongDescription = "The kiwi typically grows in the shape of an oval and is roughly around the size of a typical chicken egg. Its skin is camel-colored, fibrous, and coated in a light fuzz. Despite its fuzzy covering, the kiwi’s skin is edible and tart. The kiwi’s flesh is bright green with a unique but pleasing texture and rows of distinctive tiny black seeds, which can also be eaten. Kiwis have a sweet, tart, and bold taste — making them a popular addition to a healthy breakfast or lunch. Kiwis are high in Vitamin C  and dietary fiber and provide a variety of health benefits. This tart fruit can support heart health, digestive health, and immunity. The kiwi is a healthy choice of fruit and is rich with vitamins and antioxidants. Its tart flavor, pleasing texture, and low calorie count make it a delicious and healthy option for snacking, sides, or a unique dessert. The vitamins, fiber, and antioxidants can provide essential health benefits. The flesh is rich with vitamins that stimulate immunity and reduce the risk of disease.  Store them in a cool, dry place away from direct sunlight. Cut and serve it chilled. Blend them into thick milkshakes, smoothies, juices. Add them in salads and bake delicious pies. The nutritive value and flavour are retained even on cooking.",
+                            LongDescription = "Onion is a vegetable which is almost like a staple in Indian food. This is also known to be one of the essential ingredients of raw salads. They come in different colours like white, red or yellow and are quite in demand in cold salads and hot soups.",
                             Name = "Kiwi (3 units)",
                             Price = 66m,
-                            ShortDescription = "One Kiwi contains a full day requirement of vitamin C."
+                            ShortDescription = "Onion is a round vegetable with a brown skin that grows underground."
                         },
                         new
                         {
-                            ProductId = 11,
+                            ProductId = 2,
                             Brand = "Organic",
                             CategoryId = 2,
                             ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/jtsz3bk0/vegetable/k/y/d/5-onion-un-branded-no-whole-original-imafdsyg4ykqcyt4.jpeg?q=70",
@@ -347,77 +304,7 @@ namespace BuyGroceriesOnline.Migrations
                         },
                         new
                         {
-                            ProductId = 12,
-                            Brand = "Organic",
-                            CategoryId = 2,
-                            ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/jtsz3bk0/vegetable/b/8/4/2-potato-un-branded-no-whole-original-imafdsymh2aepaph.jpeg?q=70",
-                            ImageUrl = "https://rukminim1.flixcart.com/image/832/832/jtsz3bk0/vegetable/b/8/4/2-potato-un-branded-no-whole-original-imafdsymh2aepaph.jpeg?q=70",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "These are a special variant early harvest of potatoes and are easily distinguishable with their thin/ tender skin which makes them easy-to-peel off even it can be used without peeling.  ",
-                            Name = "Fresh Potato (1 kg)",
-                            Price = 37m,
-                            ShortDescription = "If you are looking for soft, slightly sweet but creamy-textured potatoes. You're at right place!"
-                        },
-                        new
-                        {
-                            ProductId = 13,
-                            Brand = "Organic",
-                            CategoryId = 2,
-                            ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/km9ht3k0/vegetable/y/o/3/cabbage-unbranded-whole-no-original-imagf7fpazpgzcwm.jpeg?q=70",
-                            ImageUrl = "https://rukminim1.flixcart.com/image/832/832/km9ht3k0/vegetable/y/o/3/cabbage-unbranded-whole-no-original-imagf7fpazpgzcwm.jpeg?q=70",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "These are a special variant early harvest of potatoes and are easily distinguishable with their thin/ tender skin which makes them easy-to-peel off even it can be used without peeling.",
-                            Name = "Cabbage, 1 Units  (500 – 800gm)",
-                            Price = 26m,
-                            ShortDescription = "If you are looking for soft, slightly sweet but creamy-textured potatoes. You're at right place!"
-                        },
-                        new
-                        {
-                            ProductId = 15,
-                            Brand = "Organic",
-                            CategoryId = 2,
-                            ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/kuczmvk0/vegetable/h/s/j/carrot-ooty-un-branded-no-whole-original-imag7hvnqty9v5gu.jpeg?q=70",
-                            ImageUrl = "https://rukminim1.flixcart.com/image/832/832/kuczmvk0/vegetable/h/s/j/carrot-ooty-un-branded-no-whole-original-imag7hvnqty9v5gu.jpeg?q=70",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "Carrots are a great addition to soups and stews, appetizers and hors d'oeuvres, side dishes and salads. They can be roasted in the oven or boiled on the stove top. Try using carrots in place of potato slices in soup, for a lower-carbohydrate meal.",
-                            Name = "Carrot (500 g)",
-                            Price = 71m,
-                            ShortDescription = "If you are looking for soft, slightly sweet but creamy-textured potatoes. You're at right place!"
-                        },
-                        new
-                        {
-                            ProductId = 17,
-                            Brand = "Organic",
-                            CategoryId = 2,
-                            ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/ked56kw0/vegetable/8/h/z/100-mint-leaves-un-branded-no-whole-original-imafv2ftybhf2erb.jpeg?q=70",
-                            ImageUrl = "https://rukminim1.flixcart.com/image/832/832/ked56kw0/vegetable/8/h/z/100-mint-leaves-un-branded-no-whole-original-imafv2ftybhf2erb.jpeg?q=70",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "But we should not eat cut fruits at the market as they are very unhygienic and can make us ill. But we should not eat cut fruits at the market as they are very unhygienic and can make us ill. ",
-                            Name = "Mint Leaves (100 g)",
-                            Price = 19m,
-                            ShortDescription = "But we should not eat cut fruits at the market as they are very unhygienic and can make us ill. "
-                        },
-                        new
-                        {
-                            ProductId = 19,
-                            Brand = "Organic",
-                            CategoryId = 2,
-                            ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/kc3p30w0/vegetable/t/m/x/250-beans-haricot-un-branded-whole-no-original-imaftauycjuhr4ay.jpeg?q=70",
-                            ImageUrl = "https://rukminim1.flixcart.com/image/832/832/kc3p30w0/vegetable/t/m/x/250-beans-haricot-un-branded-whole-no-original-imaftauycjuhr4ay.jpeg?q=70",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "But we should not eat cut fruits at the market as they are very unhygienic and can make us ill. But we should not eat cut fruits at the market as they are very unhygienic and can make us ill. ",
-                            Name = "Beans Haricot (250 g)",
-                            Price = 22m,
-                            ShortDescription = "But we should not eat cut fruits at the market as they are very unhygienic and can make us ill. "
-                        },
-                        new
-                        {
-                            ProductId = 21,
+                            ProductId = 3,
                             Brand = "India Gate",
                             CategoryId = 3,
                             ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/knqd3m80/rice/9/o/d/white-feast-rozzana-na-basmati-rice-pouch-india-gate-original-imag2c7wfzxrfwdy.jpeg?q=70",
@@ -431,93 +318,9 @@ namespace BuyGroceriesOnline.Migrations
                         },
                         new
                         {
-                            ProductId = 22,
-                            Brand = "Aashirvaad",
-                            CategoryId = 3,
-                            ImageThumbnailUrl = "https://m.media-amazon.com/images/I/81l7thl5AQL._SL1500_.jpg",
-                            ImageUrl = "https://m.media-amazon.com/images/I/81l7thl5AQL._SL1500_.jpg",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "Made from the King of Wheat – Sharbati, Aashirvaad Select is a premium quality aata which is made with love in India. This sharbati wheat flour contains 100% Sharbati wheat from select regions of Madhya Pradesh. ",
-                            Name = "Aashirvaad Select Sharbatti Atta",
-                            Price = 85m,
-                            ShortDescription = "Aashirvaad Select is a premium quality atta made from the King of Wheat – Sharbati wheat grains"
-                        },
-                        new
-                        {
-                            ProductId = 23,
-                            Brand = "Aashirvaad",
-                            CategoryId = 3,
-                            ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/l4hcx3k0/flour/0/l/1/-original-imagfd3gtdjrsxds.jpeg?q=70",
-                            ImageUrl = "https://rukminim1.flixcart.com/image/832/832/l4hcx3k0/flour/0/l/1/-original-imagfd3gtdjrsxds.jpeg?q=70",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "",
-                            Name = "Aashirvaad Nature's Superfoods Multi Millet Mix  (500 g)",
-                            Price = 57m,
-                            ShortDescription = "If you are looking for soft, slightly sweet but creamy-textured potatoes. You're at right place!"
-                        },
-                        new
-                        {
-                            ProductId = 24,
-                            Brand = "Aashirvaad",
-                            CategoryId = 3,
-                            ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/l26hdow0/flour/4/k/s/-original-imagdkghzc9yhdtv.jpeg?q=70",
-                            ImageUrl = "https://rukminim1.flixcart.com/image/832/832/l26hdow0/flour/4/k/s/-original-imagdkghzc9yhdtv.jpeg?q=70",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "",
-                            Name = "Aashirvaad Natures Superfoods Ragi Flour  (1 kg)",
-                            Price = 90m,
-                            ShortDescription = "If you are looking for soft, slightly sweet but creamy-textured potatoes. You're at right place!"
-                        },
-                        new
-                        {
-                            ProductId = 25,
-                            Brand = "Aashirvaad",
-                            CategoryId = 3,
-                            ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/ki96c280/flour/f/7/z/1-sugar-release-control-atta-1-whole-wheat-flour-aashirvaad-original-imafy2w5hjxwhrjy.jpeg?q=70",
-                            ImageUrl = "https://rukminim1.flixcart.com/image/832/832/ki96c280/flour/f/7/z/1-sugar-release-control-atta-1-whole-wheat-flour-aashirvaad-original-imafy2w5hjxwhrjy.jpeg?q=70",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "",
-                            Name = "Aashirvaad Sugar Release Control Atta  (1 kg)",
-                            Price = 80m,
-                            ShortDescription = "If you are looking for soft, slightly sweet but creamy-textured potatoes. You're at right place!"
-                        },
-                        new
-                        {
-                            ProductId = 27,
-                            Brand = "Fortune",
-                            CategoryId = 3,
-                            ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/kqidx8w0/flour/a/r/d/besan-besan-fortune-original-imag4gb46e9zwps8.jpeg?q=70",
-                            ImageUrl = "https://rukminim1.flixcart.com/image/832/832/kqidx8w0/flour/a/r/d/besan-besan-fortune-original-imag4gb46e9zwps8.jpeg?q=70",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "But we should not eat cut fruits at the market as they are very unhygienic and can make us ill. But we should not eat cut fruits at the market as they are very unhygienic and can make us ill. ",
-                            Name = "Fortune Besan  (500 g)",
-                            Price = 55m,
-                            ShortDescription = "But we should not eat cut fruits at the market as they are very unhygienic and can make us ill. "
-                        },
-                        new
-                        {
-                            ProductId = 29,
-                            Brand = "",
-                            CategoryId = 3,
-                            ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/ktx9si80/flour/c/t/e/roasted-sooji-soji-safe-harvest-original-imag762nfygx9sdc.jpeg?q=70",
-                            ImageUrl = "https://rukminim1.flixcart.com/image/832/832/ktx9si80/flour/c/t/e/roasted-sooji-soji-safe-harvest-original-imag762nfygx9sdc.jpeg?q=70",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "Britannia Bourbon is made for the people who can’t get enough of chocolate, Britannia Bourbon is made for the people who can’t get enough of chocolate",
-                            Name = "Oiginal",
-                            Price = 8m,
-                            ShortDescription = "Britannia Bourbon is made for the people who can’t get enough of chocolate"
-                        },
-                        new
-                        {
-                            ProductId = 111,
+                            ProductId = 4,
                             Brand = "Britannia",
-                            CategoryId = 3,
+                            CategoryId = 4,
                             ImageThumbnailUrl = "https://m.media-amazon.com/images/I/81l7thl5AQL._SL1500_.jpg",
                             ImageUrl = "https://m.media-amazon.com/images/I/81l7thl5AQL._SL1500_.jpg",
                             InStock = true,
@@ -529,59 +332,45 @@ namespace BuyGroceriesOnline.Migrations
                         },
                         new
                         {
-                            ProductId = 112,
-                            Brand = "Haldirams",
-                            CategoryId = 3,
-                            ImageThumbnailUrl = "https://i.pinimg.com/736x/8b/64/45/8b6445a600bd18e708ee3c7d5ddb0353.jpg",
-                            ImageUrl = "https://cdn.shopify.com/s/files/1/0501/5361/9606/products/1_3980ed7e-002d-4b35-828b-77586be12f11_512x720.jpg?v=1657172703",
+                            ProductId = 5,
+                            Brand = "Coca-Cola ",
+                            CategoryId = 5,
+                            ImageThumbnailUrl = "https://rukminim1.flixcart.com/image/832/832/l3dcl8w0/aerated-drink/w/b/2/-original-imagegf8yccvrgvx.jpeg?q=70",
+                            ImageUrl = "https://rukminim1.flixcart.com/image/832/832/l3dcl8w0/aerated-drink/w/b/2/-original-imagegf8yccvrgvx.jpeg?q=70",
                             InStock = true,
                             IsProductOfTheWeek = false,
                             LongDescription = "This classic snack is made with chickpea flour, potato and some spices. This is a popular Indian snack that is originated from Rajasthan. It is a great accompaniment to savoury snacks that adds texture to classic Indian snacks.",
-                            Name = "Aloo Bhujia Namkeen (150 g)",
-                            Price = 33m,
+                            Name = "Coca-Cola Soft Drink Can",
+                            Price = 31m,
                             ShortDescription = "Haldirams Aloo Bhujia is a authentic namkeen."
                         },
                         new
                         {
-                            ProductId = 114,
-                            Brand = "Sprite",
-                            CategoryId = 5,
-                            ImageThumbnailUrl = "https://www.bigbasket.com/media/uploads/p/l/251006_11-sprite-soft-drink-lime-flavoured.jpg",
-                            ImageUrl = "https://www.bigbasket.com/media/uploads/p/l/251006_11-sprite-soft-drink-lime-flavoured.jpg",
+                            ProductId = 6,
+                            Brand = "Comfort",
+                            CategoryId = 6,
+                            ImageThumbnailUrl = "https://m.media-amazon.com/images/I/610h+cTerLL._AC_UL480_FMwebp_QL65_.jpg",
+                            ImageUrl = "https://m.media-amazon.com/images/I/610h+cTerLL._AC_UL480_FMwebp_QL65_.jpg",
                             InStock = true,
                             IsProductOfTheWeek = false,
-                            LongDescription = "Refreshing people since 1999, Sprite is known for its straightforward attitude. The brand strongly believes in removing all the unnecessary Bakwaas from your life so that you can chill for real.",
-                            Name = "Sprite Soft Drink",
-                            Price = 35m,
-                            ShortDescription = "Carbonated Water, Sugar, Acidity Regulator (330, 331), Preservative (211). Contains Added Flavours (Natural Flavouring Substances)."
+                            LongDescription = "A good fabric conditioner is an essential part of every household. After Wash Morning Fresh Fabric Conditioner helps to keep your clothes fresh and scented. It helps to retain the shape of the cloth and also provide long life for your outfit. The product is known to provide proper care and keep your clothes smelling amazing. Comfort is a brand name for fabric softener sold by Unilever in the UK and around the world. comfort is a small step after wash that coats each cloth fibre with a protective layer and prevents the damage caused by repeated washing. It gives a long lasting fragrance and is really easy to use. Convenient for both machine and hand wash. ",
+                            Name = "Comfort After Wash Morning Fresh Fabric Conditioner (860 ml)",
+                            Price = 235m,
+                            ShortDescription = "Comfort After Wash Morning Fresh Fabric Conditioner helps to keep your clothes fresh and scented. "
                         },
                         new
                         {
-                            ProductId = 115,
-                            Brand = "Fanta",
-                            CategoryId = 5,
-                            ImageThumbnailUrl = "https://www.bigbasket.com/media/uploads/p/l/251019_8-fanta-soft-drink-orange-flavoured.jpg",
-                            ImageUrl = "https://www.bigbasket.com/media/uploads/p/l/251019_8-fanta-soft-drink-orange-flavoured.jpg",
+                            ProductId = 7,
+                            Brand = "Maybelline New York",
+                            CategoryId = 7,
+                            ImageThumbnailUrl = "https://m.media-amazon.com/images/I/61sPnjCjFWL._AC_UL480_FMwebp_QL65_.jpg",
+                            ImageUrl = "https://m.media-amazon.com/images/I/61sPnjCjFWL._AC_UL480_FMwebp_QL65_.jpg",
                             InStock = true,
                             IsProductOfTheWeek = false,
-                            LongDescription = "Life is always fun with colourful energy, vibes and FANTA by your side. Known for its vibrant colour, tempting taste and tingling bubbles, FANTA lets your spirit free, thus encouraging you to have fun in life.",
-                            Name = "Fanta Soft Drink",
-                            Price = 35m,
-                            ShortDescription = "Orange Flavoured, Refreshing, 750 ml Pet Bottle"
-                        },
-                        new
-                        {
-                            ProductId = 116,
-                            Brand = "Thums Up",
-                            CategoryId = 5,
-                            ImageThumbnailUrl = "https://www.bigbasket.com/media/uploads/p/l/288927_8-thums-up-soft-drink.jpg",
-                            ImageUrl = "https://www.bigbasket.com/media/uploads/p/l/288927_8-thums-up-soft-drink.jpg",
-                            InStock = true,
-                            IsProductOfTheWeek = false,
-                            LongDescription = "Thums Up is well-known for its strong, fizzy flavor and its secure, mature and distinctively masculine attitude. This brand obviously seeks to divide the men from the boys. A glass soft drink goes well with any variety of food and any type of mood.",
-                            Name = "Thums Up Soft Drink",
-                            Price = 40m,
-                            ShortDescription = "Carbonated Water, sugar, Acidity Regulator (338), Caffeine. Contains Permitted Natural Colour (150d) and Added Flavours (Natural, Nature - identical and Artificial Flavouring Substances)."
+                            LongDescription = ", Comes in the handy retractable stick which is easy to use and carry. Infused with SPF 20. Provides 8 - hour moisturisation. Helps to care and repair. How to Use Step 1: Apply your Maybelline lip balm by starting in the centre of your upper lip.Step 2: Work from the centre to the outer edges of your lip, following the contours of your mouth.Step 3: Then glide across the entire bottom lip.",
+                            Name = "Maybelline New York Baby Lips Lip Balm, 4 g Berry Crush",
+                            Price = 199m,
+                            ShortDescription = "Our moisturizing Baby Lips lip balm will heal and soothe dry or chapped lips. "
                         });
                 });
 

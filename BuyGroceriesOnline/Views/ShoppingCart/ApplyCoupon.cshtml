@@ -1,0 +1,30 @@
+﻿@model BuyGroceriesOnline.Models.Coupon
+
+@{
+    ViewData["Title"] = "ApplyCoupon";
+}
+
+<h1>ApplyCoupon</h1>
+
+<h4>Coupon</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="ShoppingCart" asp-action="CalculateDiscount" method="get">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CouponName" class="control-label"></label>
+                <input class="form-control" type="text" placeholder="Enter Coupon" name="name" />
+                <span asp-validation-for="CouponName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="ShoppingCart" asp-action="Index">Back to Cart</a>
+</div>
+

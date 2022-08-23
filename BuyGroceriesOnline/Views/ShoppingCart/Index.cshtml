@@ -13,6 +13,20 @@
             <a asp-controller="Order" asp-action="Checkout" class="btn btn-danger">
                 <i class="bi bi-credit-card-fill"></i> &nbsp;Place Order
             </a>
+
+            @if(Context.Session.GetString("manager")=="1")
+            {
+                <a asp-controller="Coupon" asp-action="ListCoupons" class="btn btn-Secondary">
+                    <i class="bi bi-credit-card-fill"></i> &nbsp; List Coupon
+                </a>
+            }
+
+            @if(Context.Session.GetString("manager")=="0")
+            {
+                <a asp-controller="ShoppingCart" asp-action="ApplyCoupon" class="btn btn-Secondary">
+                    <i class="bi bi-credit-card-fill"></i> &nbsp; Apply Coupon
+                </a>
+            }
         </div>
     </div>
     <br />

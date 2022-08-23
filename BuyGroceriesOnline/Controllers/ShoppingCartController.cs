@@ -8,12 +8,14 @@ namespace BuyGroceriesOnline.Controllers
     public class ShoppingCartController : Controller
     {
         private readonly IProductRepository _productRepository;
+        private readonly ICouponRepository _couponRepository;
         private readonly ShoppingCart _shoppingCart;
 
-        public ShoppingCartController(IProductRepository productRepository, ShoppingCart shoppingCart)
+        public ShoppingCartController(IProductRepository productRepository, ShoppingCart shoppingCart, ICouponRepository couponRepository)
         {
             _productRepository = productRepository;
             _shoppingCart = shoppingCart;
+            _couponRepository = couponRepository;
         }
         public IActionResult Index()
         {
@@ -26,6 +28,26 @@ namespace BuyGroceriesOnline.Controllers
                 ShoppingCartTotal = _shoppingCart.GetShoppingCartTotal()
             };
             return View(shoppingCartViewModel);
+        }
+
+        public ViewResult ApplyCoupon()
+        {
+            return View();
+        }
+
+        public RedirectToActionResult CalculateDiscount(string name)
+        {
+            var discount = _couponRepository.AllCoupon.Where(n => n.CouponName == name).Select(a => a.Discount).FirstOrDefault();
+            var Amount = discount * 0.01;
+            decimal Total = _shoppingCart.GetShoppingCartTotal();
+            decimal SubTotal = Decimal.Multiply(Total, Convert.ToDecimal(Amount));
+            var shoppingCartViewModel = new ShoppingCartViewModel
+            {
+                ShoppingCart = _shoppingCart, 
+                ShoppingCartTotal = Total-SubTotal
+            };
+
+            return RedirectToAction("Index");
         }
 
         public RedirectToActionResult AddToShoppingCart(int productId)

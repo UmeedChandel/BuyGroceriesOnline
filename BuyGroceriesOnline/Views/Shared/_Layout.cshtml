@@ -79,13 +79,13 @@
                         @if (Context.Session.GetString("manager") == "0")
                         {
                             <li class="nav-item" align="center">
-                                <a class="nav-link" asp-controller="Order" asp-action="FeedBack"><i class="bi bi-chat-center"></i> Feedback</a>
+                                <a class="nav-link" asp-controller="Order" asp-action="FeedBack"><i class="bi bi-chat-right"></i> Feedback</a>
                             </li>
                         }
                         @if(Context.Session.GetString("manager")=="1")
                     {
                       <li class="nav-item">
-                      <a class="nav-link" asp-controller="Order" asp-action="AllFeedback"><i class="bi bi-tags"></i>All Feedbacks</a>
+                      <a class="nav-link" asp-controller="Order" asp-action="AllFeedback"><i class="bi bi-chat-right"></i> All Feedbacks</a>
                       </li>
                     }
                     @await Component.InvokeAsync("CategoryMenu")

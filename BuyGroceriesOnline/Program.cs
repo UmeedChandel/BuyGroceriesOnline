@@ -23,7 +23,11 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
 builder.Services.AddScoped<ICouponRepository, CouponRepository>();
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly()); //for automapping
-
+builder.Services.AddAuthentication().AddFacebook(options =>
+{
+    options.AppId = "442257214517899";
+    options.AppSecret = "1c14cdf96bd5adb59cbe47dc7c270c81";
+});
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));

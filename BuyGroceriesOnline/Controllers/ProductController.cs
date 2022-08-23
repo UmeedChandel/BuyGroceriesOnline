@@ -57,14 +57,21 @@ namespace BuyGroceriesOnline.Controllers
 
         public IActionResult SearchButton(string Name)
         {
-            if(String.IsNullOrEmpty(Name))
-            {
-                TempData["Message"] = "enter valid product name!";
-                return View();
-            }
             IEnumerable<Product> product = new List<Product>();
             product = _productRepository.AllProduct.Where(s => s.Name.ToUpper().Contains(Name.ToUpper()));
-            return View(product);
+
+            if (String.IsNullOrEmpty(Name))
+            {
+                TempData["error"] = "Enter Product Name!";
+                return RedirectToAction("List");
+            }
+            else if (product != null)
+            {
+                return View(product);
+                
+            }
+            TempData["error"] = "No such Product exists!";
+            return RedirectToAction("List");
         }
 
         public IActionResult ProductOfWeek()

@@ -54,22 +54,23 @@ namespace BuyGroceriesOnline.Controllers
             var selectedProduct = _productRepository.AllProduct.FirstOrDefault(p => p.ProductId == productId);
             if (!(selectedProduct.InStock))
             {
-                return RedirectToAction("NotInStock");
+                TempData["error"] = "Not in stock!";
+                /*return RedirectToAction("NotInStock");*/
             }else if (selectedProduct != null)
             {
+                TempData["success"] = "Item Added to Cart";
                 _shoppingCart.AddToCart(selectedProduct, 1);
-            } 
-            
+            }
             return RedirectToAction("Index");
             //return Redirect(Request.UrlReferrer.ToString());
         }
-
         public RedirectToActionResult RemoveFromShoppingCart(int productId)
         {
             var selectedProduct = _productRepository.AllProduct.FirstOrDefault(p => p.ProductId == productId);
 
             if (selectedProduct != null)
             {
+                TempData["error"] = "Item Removed!";
                 _shoppingCart.RemoveFromCart(selectedProduct);
             }
             return RedirectToAction("Index");
@@ -79,6 +80,7 @@ namespace BuyGroceriesOnline.Controllers
         public RedirectToActionResult ClearCart()
         {
             _shoppingCart.ClearCart();
+            TempData["warning"] = "Cart Cleared";
             return RedirectToAction("Index");
         }
 
@@ -87,6 +89,7 @@ namespace BuyGroceriesOnline.Controllers
             var selectedProduct = _productRepository.AllProduct.FirstOrDefault(p => p.ProductId == productId);
             if (selectedProduct != null)
             {
+                TempData["error"] = "Item Removed!";
                 _shoppingCart.RemoveItem(selectedProduct);
             }
             return RedirectToAction("Index");

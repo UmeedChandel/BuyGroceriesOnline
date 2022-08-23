@@ -1,4 +1,4 @@
-﻿@model BuyGroceriesOnline.Models.Coupon
+﻿@model IEnumerable<BuyGroceriesOnline.Models.Coupon>
 
 @{
     ViewData["Title"] = "ApplyCoupon";
@@ -6,25 +6,32 @@
 
 <h1>ApplyCoupon</h1>
 
-<h4>Coupon</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-controller="ShoppingCart" asp-action="CalculateDiscount" method="get">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CouponName" class="control-label"></label>
-                <input class="form-control" type="text" placeholder="Enter Coupon" name="name" />
-                <span asp-validation-for="CouponName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Submit" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CouponName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CouponName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount)
+            </td>
+            <td>
+                <a asp-controller="ShoppingCart" asp-action="CalculateDiscount" asp-route-id="@item.CouponId">Apply Coupon</a> 
+            </td>
 
-<div>
-    <a asp-controller="ShoppingCart" asp-action="Index">Back to Cart</a>
-</div>
-
+        </tr>
+}
+    </tbody>
+</table>

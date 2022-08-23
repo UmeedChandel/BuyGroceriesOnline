@@ -8,7 +8,6 @@ using System.Collections.Generic;
 
 namespace BuyGroceriesOnline.Controllers
 {
-    [Authorize]
     public class ProductController : Controller
     {
         private readonly IProductRepository _productRepository;
@@ -38,7 +37,6 @@ namespace BuyGroceriesOnline.Controllers
                 var category = _categoryRepository.AllCategories.Where(c => c.CategoryId == id).FirstOrDefault();
                 customClass.CurrentCategory = category.CategoryName;
                 customClass.CategoryDescription = category.Description ;
-                //product.FirstOrDefault().Category.CategoryName;
             }
             else
             {
@@ -74,7 +72,7 @@ namespace BuyGroceriesOnline.Controllers
             return View(_productRepository.ProductOfTheWeek);
         }
 
-
+        [Authorize]
         public IActionResult Details(int id)
         {
             return View(GetAllProduct().FirstOrDefault(p => p.ProductId == id));

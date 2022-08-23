@@ -1,9 +1,11 @@
 ﻿using BuyGroceriesOnline.Models;
 using BuyGroceriesOnline.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BuyGroceriesOnline.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly IHttpContextAccessor _contextAccessor;

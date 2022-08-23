@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BuyGroceriesOnline.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220822175647_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20220822174600_mvcInit")]
+    partial class mvcInit
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

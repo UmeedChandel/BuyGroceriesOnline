@@ -58,6 +58,7 @@ namespace BuyGroceriesOnline.Controllers
             {
                 _shoppingCart.AddToCart(selectedProduct, 1);
             }
+            TempData["success"] = "Item Added to Cart";
             return RedirectToAction("Index");
         }
 

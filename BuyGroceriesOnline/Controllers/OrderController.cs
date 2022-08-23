@@ -78,6 +78,7 @@ namespace BuyGroceriesOnline.Controllers
 
             if (selectedOrder != null)
             {
+                TempData["error"] = "Item Cancelled!";
                 _orderRepository.CancelOrder(selectedOrder);
             }
             return RedirectToAction("DisplayOrder");

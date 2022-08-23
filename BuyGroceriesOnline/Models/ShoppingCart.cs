@@ -61,7 +61,7 @@ namespace BuyGroceriesOnline.Models
             {
                 shoppingCartItem.Amount++;
             }
-            _appDbContext.SaveChanges();           
+            _appDbContext.SaveChanges();
 
         }
         public int RemoveFromCart(Product product)

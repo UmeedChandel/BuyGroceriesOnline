@@ -39,11 +39,10 @@
                                     <a class="nav-link " asp-area="" asp-controller="ShoppingCart" asp-action="Index"><i class="bi bi-cart3"></i> Cart @await Component.InvokeAsync("ShoppingCartSummary")</a>
                             </li>                        
                          </ul>
-                         <form class="d-flex" asp-controller="Product" asp-action="SearchButton" method="get">
-                              <input class="form-control me-sm-2" type="text" placeholder="Search" name="name">
+                         <form class="d-flex" style="width:700px !important;" asp-controller="Product" asp-action="SearchButton" method="get">
+                              <input class="form-control me-sm-2" type="text" placeholder="Search your product..." name="name">
                               <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
                           </form>
-
 
                     <div class="ms-auto">
                                <partial name="_LoginPartial">

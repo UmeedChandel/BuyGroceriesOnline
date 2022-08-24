@@ -20,12 +20,6 @@ namespace BuyGroceriesOnline.Controllers
             return View(GetAllCoupon());
         }
 
-
-
-
-
-
-
         public ViewResult Create()
         {
             return View();

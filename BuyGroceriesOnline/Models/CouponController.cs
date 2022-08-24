@@ -19,12 +19,6 @@ namespace BuyGroceriesOnline.Models
             return View(GetAllCoupon());
         }
 
-
-
-
-
-
-
         public ViewResult Create()
         {
             return View();

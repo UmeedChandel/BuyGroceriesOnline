@@ -22,13 +22,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IFeedbackRepository, FeedbackRepository>();
 builder.Services.AddScoped<ICouponRepository, CouponRepository>();
-builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly()); //for automapping
-/*builder.Services.AddAuthentication().AddGoogle(options =>
-{
-    options.ClientId = "220303410034-lms8g8jaus9efs5a3rugai87qndfduio.apps.googleusercontent.com";
-    options.ClientSecret = "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";
-
-});*/
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 builder.Services.AddAuthentication().AddFacebook(options =>
 {
@@ -49,7 +43,6 @@ builder.Services.AddAuthentication().AddTwitter(options =>
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
-//Comment
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();
